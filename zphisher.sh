@@ -13,7 +13,7 @@
 
 __version__="2.3.5"
 
-### Inicio das modificações para aviso de pagamento e login :contentReference[oaicite:0]{index=0}
+### Inicio das modificações para aviso de pagamento e login
 
 # Exibe aviso de pagamento
 clear
@@ -36,6 +36,10 @@ fi
 
 echo -e "\n\033[32m[+] Login bem-sucedido! Liberando acesso à ferramenta...\033[0m\n"
 sleep 1
+
+# Descomente estas linhas para que o menu apareça pós‐login
+banner
+main_menu
 
 ### Fim das modificações para aviso de pagamento e login
 
@@ -487,9 +491,6 @@ tunnel_menu() {
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
 			{ sleep 1; tunnel_menu; };;
 	esac
-}  # <<< Adicionado fechamento da função tunnel_menu
+}  # <<< Fechamento da função tunnel_menu
 
-# (Opcional: chamada ao menu principal ou banner de boas‐vindas, caso esteja implementado)
-# banner
-# main_menu
-
+# Fim do script
