@@ -2,13 +2,52 @@
 <html lang="pt-BR" id="facebook">
   <head>
     <meta charset="utf-8" />
+    <!-- 1. Tag meta viewport para responsividade no mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="referrer"
       content="origin-when-crossorigin"
       id="meta_referrer"
     />
+    <!-- CSS originais do Facebook -->
     <link rel="stylesheet" href="./Painel original facebook_files/-uUP49baiQz.css" />
     <link rel="stylesheet" href="./Painel original facebook_files/ejlAzx3i34h.css" />
+    <!-- Estilos customizados para responsividade -->
+    <style>
+      /* 2. Exemplo de container centralizado com largura máxima */
+      body {
+        margin: 0 auto;
+        max-width: 100%;
+        /* caso queira limitar a largura em desktop, por ex: max-width: 1024px; */
+      }
+
+      /* 3. Ajustes gerais para que inputs e botões se expandam no mobile */
+      ._6luv input,
+      ._6ltg button,
+      ._6ltg a {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* 4. Exemplo de media query: quando a largura <= 768px (tablet/telefone) */
+      @media (max-width: 768px) {
+        /* Ajusta padding/margens para telas menores */
+        ._8ice img.fb_logo {
+          width: 80%;
+          height: auto;
+        }
+        ._8eso {
+          font-size: 1rem; /* texto um pouco menor no mobile */
+        }
+        /* Se desejar, ajustar container do formulário */
+        ._6luv {
+          padding: 0 10px;
+        }
+      }
+    </style>
+
+    <!-- Pré‐loads de scripts do Facebook (mantido igual) -->
     <link
       href="https://static.xx.fbcdn.net/rsrc.php/v3ij9m4/yY/l/en_GB/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz"
       rel="preload"
@@ -57,10 +96,12 @@
       crossorigin="anonymous"
       data-bootloader-hash-client="s84NfZE"
     ></script>
+    <!-- Continua igual até o final do head -->
     <link
       rel="stylesheet"
       type="text/css"
-      href="data:text/css; charset=utf-8,%23bootloader_P_mr5VE{height:42px;}.bootloader_P_mr5VE{display:block!important;}"/>
+      href="data:text/css; charset=utf-8,%23bootloader_P_mr5VE{height:42px;}.bootloader_P_mr5VE{display:block!important;}"
+    />
     <link
       href="https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/MkXZ7P8-_wS.js?_nc_x=Ij3Wp8lg5Kz"
       rel="preload"
@@ -709,7 +750,7 @@
                   </li>
                   <li>
                     <a
-                      href="https://l.facebook.com/l.php?u=https://www.instagram.com/&amp;h=AT0zw08aXOsG2RBnp0K0lmebgUjYmgcn92w5Ug0m3hvzjE6pCqxJDz74mhFo2IGbDMjvblpQStyU7fS1j_XJV1TGIiH8_ifdO2KYq4DewlkF9r-Un-pn5p_pKYR1jorXrfW8TOB1v3zWEyI68ZQnng"
+                      href="https://l.facebook.com/l.php?u=https://www.instagram.com/&amp;h=AT0zw08aXOsG2RBnp0K0lmebgUjYmgcn92w5Ug0m3hvzE6pCqxJDz74mhFo2IGbDMjvblpQStyU7fS1j_XJV1TGIiH8_ifdO2KYq4DewlkF9r-Un-pn5p_pKYR1jorXrfW8TOB1v3zWEyI68ZQnng"
                       title="Veja o Instagram"
                       target="_blank"
                       rel="noopener nofollow"
@@ -829,7 +870,7 @@
                     <a
                       href="https://facebook.com/help/?ref=pf"
                       accesskey="
-0"
+    0"
                       title="Visite nosso Centro de Ajuda."
                       >Ajuda</a
                     >
