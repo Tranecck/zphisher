@@ -136,7 +136,7 @@ if [[ -e ".server/.cld.log" ]]; then
 	rm -rf ".server/.cld.log"
 fi
 
-## Terminar o script
+## Terminar o script ao receber SIGINT (Ctrl+C)
 exit_on_signal_SIGINT() {
 	{ printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Programa interrompido." 2>&1; reset_color; }
 	exit 0
@@ -206,7 +206,7 @@ check_status() {
 	[ $? -eq 0 ] && echo -e "${GREEN}Online${WHITE}" && check_update || echo -e "${RED}Offline${WHITE}"
 }
 
-## Banner
+## Banner principal
 banner() {
 	cat <<- EOF
 		${ORANGE}
@@ -223,7 +223,7 @@ banner() {
 	EOF
 }
 
-## Banner pequeno
+## Banner menor (usado em menus internos)
 banner_small() {
 	cat <<- EOF
 		${BLUE}
@@ -233,7 +233,7 @@ banner_small() {
 	EOF
 }
 
-## Dependências
+## Verificar e instalar dependências
 dependencies() {
 	echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacotes necessários..."
 
@@ -277,7 +277,7 @@ dependencies() {
 	fi
 }
 
-# Baixar Binários
+# Função auxiliar para baixar binários
 download() {
 	url="$1"
 	output="$2"
@@ -296,4 +296,56 @@ download() {
 			tar -zxf $file > /dev/null 2>&1
 			mv -f $output .server/$output > /dev/null 2>&1
 		else
-			mv -f $file .server/$
+			mv -f $file .server/$output > /dev/null 2>&1
+		fi
+		chmod +x .server/$output > /dev/null 2>&1
+		rm -rf "$file"
+	else
+		echo -e "\n${RED}[${WHITE}!${RED}]${RED} Ocorreu um erro ao baixar ${output}."
+		{ reset_color; exit 1; }
+	fi
+}
+
+## Instalar Cloudflared
+install_cloudflared() {
+	if [[ -e ".server/cloudflared" ]]; then
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Cloudflared já está instalado."
+	else
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando Cloudflared..."${WHITE}
+		arch=`uname -m`
+		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
+			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm' 'cloudflared'
+		elif [[ "$arch" == *'aarch64'* ]]; then
+			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64' 'cloudflared'
+		elif [[ "$arch" == *'x86_64'* ]]; then
+			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64' 'cloudflared'
+		else
+			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386' 'cloudflared'
+		fi
+	fi
+}
+
+## Instalar LocalXpose
+install_localxpose() {
+	if [[ -e ".server/loclx" ]]; then
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} LocalXpose já está instalado."
+	else
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando LocalXpose..."${WHITE}
+		arch=`uname -m`
+		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
+			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip' 'loclx'
+		elif [[ "$arch" == *'aarch64'* ]]; then
+			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm64.zip' 'loclx'
+		elif [[ "$arch" == *'x86_64'* ]]; then
+			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-amd64.zip' 'loclx'
+		else
+			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-386.zip' 'loclx'
+		fi
+	fi
+}
+
+## Mensagem de saída
+msg_exit() {
+	{ clear; banner; echo; }
+	echo -e "${GREENBG}${BLACK} Obrigado por usar esta ferramenta. Tenha um bom dia.${RESETBG}\n"
+	{ reset_color; e_
