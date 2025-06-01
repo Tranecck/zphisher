@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##   Zphisher 	: 	Ferramenta de Phishing Automatizada
-##   Author 	: 	TAHMID RAYAT 
+##   Author 	: 	Tranecck
 ##   Version 	: 	2.3.5
 ##   Github 	: 	https://github.com/htr-tech/zphisher
 
@@ -135,7 +135,7 @@ banner() {
 		${ORANGE}      | |                                
 		${ORANGE}      |_|                ${RED}Versão : ${__version__}
 
-		${GREEN}[${WHITE}-${GREEN}]${CYAN} Ferramenta criada por htr-tech (tahmid.rayat)${WHITE}
+		${GREEN}[${WHITE}-${GREEN}]${CYAN} Ferramenta criada por Tranecck & tahmid.rayat${WHITE}
 	EOF
 }
 
