@@ -98,12 +98,12 @@ reset_color() {
 	return
 }
 
-## Kill already running process
+## Kill já em execução
 kill_pid() {
 	check_PID="php cloudflared loclx"
 	for process in ${check_PID}; do
 		if [[ $(pidof ${process}) ]]; then # Check for Process
-			killall ${process} > /dev/null 2>&1 # Kill the Process
+			killall ${process} > /dev/null 2>&1 # Mata o processo
 		fi
 	done
 }
@@ -476,7 +476,7 @@ tunnel_menu() {
 
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Selecione um serviço de encaminhamento de porta : ${BLUE}"
 
-	case $REPLY in 
+	case $REPLY in
 		1 | 01)
 			start_localhost;;
 		2 | 02)
@@ -486,3 +486,10 @@ tunnel_menu() {
 		*)
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
 			{ sleep 1; tunnel_menu; };;
+	esac
+}  # <<< Adicionado fechamento da função tunnel_menu
+
+# (Opcional: chamada ao menu principal ou banner de boas‐vindas, caso esteja implementado)
+# banner
+# main_menu
+
