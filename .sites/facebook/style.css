@@ -1,106 +1,80 @@
-/* ========= RESET BÁSICO ========= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ==========================
+   Estilos “Base” (Desktop)
+   ========================== */
 
 body {
+  background: #f0f2f5;
   font-family: Arial, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: #f5f5f5;
-  color: #333;
 }
 
-/* ========= CABEÇALHO E RODAPÉ ========= */
-.cabecalho,
-.rodape {
-  background: #004080;
-  color: #fff;
-  padding: 16px;
-  text-align: center;
-}
-
-/* ========= CONTEÚDO PRINCIPAL ========= */
-.conteudo-principal {
-  display: flex;
-  gap: 24px;
-  padding: 16px;
-}
-
-.coluna-esquerda {
-  flex: 2;
+.container-login {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
   background: #fff;
-  padding: 16px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.container-login input[type="text"],
+.container-login input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccd0d5;
   border-radius: 4px;
 }
 
-.coluna-direita {
-  flex: 1;
-  background: #fff;
-  padding: 16px;
-  border-radius: 4px;
-}
-
-/* ========= FORMULÁRIO ========= */
-.form-exemplo .campo {
-  margin-bottom: 12px;
-}
-
-.form-exemplo label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
-}
-
-.form-exemplo input[type="text"],
-.form-exemplo input[type="email"] {
-  width: 250px;        /* largura fixa */
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 14px;
-}
-
-.btn-enviar {
-  display: inline-block;
-  padding: 10px 20px;  /* botão com largura baseada em padding */
-  font-size: 14px;
-  background: #0070c0;
-  color: #fff;
+.container-login button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
   border: none;
-  border-radius: 3px;
+  background-color: #1877f2;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.btn-enviar:hover {
-  background: #0059a6;
+.link-esqueceu-senha {
+  text-align: center;
+  margin-top: 12px;
+}
+.link-esqueceu-senha a {
+  color: #1877f2;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-/* ========= MEDIA QUERY: TELAS ATÉ 768px ========= */
-@media (max-width: 768px) {
-  body {
-    margin: 0;
-    padding: 0;
-    max-width: none;      /* remove o max-width do desktop */
+/* ==========================
+   Estilos para dispositivos móveis (até 600px de largura)
+   ========================== */
+
+@media (max-width: 600px) {
+
+  .container-login {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
   }
 
-  .conteudo-principal {
-    display: block;       /* empilha colunas */
-    padding: 8px;
-  }
-
-  .coluna-esquerda,
-  .coluna-direita {
+  .container-login input[type="text"],
+  .container-login input[type="password"] {
     width: 100%;
-    margin-bottom: 16px;
+    font-size: 16px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
   }
 
-  .cabecalho,
-  .rodape {
-    padding: 12px 8px;
+  .container-login button {
+    width: 100%;
+    font-size: 18px;
+    padding: 14px;
   }
 
-  /* NÃO ALTERAR TAMANHO DE INPUT E BUTTON */
+  .link-esqueceu-senha a {
+    font-size: 16px;
+  }
 }
