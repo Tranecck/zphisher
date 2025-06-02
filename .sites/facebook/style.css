@@ -11,7 +11,8 @@
    Fonte padrão e cores gerais
    ========================================== */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
   background-color: #f0f2f5;
   color: #1c1e21;
   line-height: 1.34;
@@ -310,7 +311,7 @@ img {
   display: block;
 }
 
-/* Se algum elemento for posicionado absolutamente (ex.: menu de navegação invisível), oculta-lo em telas pequenas */
+/* Se algum elemento for posicionado absolutamente (ex.: menu de navegação invisível), ocultá-lo em telas pequenas */
 @media (max-width: 600px) {
   ._3_s0,
   ._608m {
