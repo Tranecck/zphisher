@@ -47,17 +47,29 @@
       text-align: center;
     }
 
+    /* O único bloco adicionado/modificado abaixo para o efeito de transição */
+    #loginForm {
+      position: relative;
+      min-height: 120px; /* ajuste conforme necessário para conter ambos os passos */
+    }
+
     .form-step {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       flex-direction: column;
       gap: 16px;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transform: translateX(100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
     }
 
     .form-step.active {
-      display: flex;
       opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
     }
 
     input {
